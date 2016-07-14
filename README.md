@@ -53,6 +53,11 @@ Research & Content
 
 * TBC
 
+
+### Terminology
+
+* “Contextualised translation” - (as we'd conceived in the hack) As well as providing the equivalent term in a second language, providing an explanation of use and application in a subject matter context relevant to the user
+
 ---
 
 ## Details
