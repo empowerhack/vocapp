@@ -25,8 +25,8 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 
 ### Product Owner(s)
 
-* EmpowerHack (Kim Lawrie, Eddie Jaoude)
-* Jamiya Project (Ben Webster)
+* EmpowerHack - [Kim Lawrie](https://github.com/atmostat), [Eddie Jaoude](https://github.com/eddiejaoude)
+* Jamiya Project - [Ben Webster](https://github.com/benwebster0)
 
 ### Project Manager
 
