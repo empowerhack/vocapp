@@ -49,9 +49,7 @@ Research & Content
 
 ### Architecture
 
-* Monolith / Microsevices etc
-* Inc. Security methods, OAuth etc
-* Responsive frontend
+* Monolith - for `prototype` phase keep simple as possible
 
 ### Tech stack
 
