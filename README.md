@@ -18,10 +18,7 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 
 ### Project goals
 
-* Design an extensible backend data structure to support multiple languages 
-* Create viable proof of concept to prototype with students for gathering feedback
-* Iterate on feedback to begin phase 2 of VocApp: production development 
-* Continue to develop and implement phased features to support better functionality 
+* Design, build and deploy a prototype to pilot with students for feedback
 
 ### Product Owner(s)
 
