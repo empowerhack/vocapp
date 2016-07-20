@@ -43,6 +43,9 @@ Research & Content
 ### Architecture
 
 * Monolith - for `prototype` phase keep simple as possible
+* Ruby
+* Twitter Bootstrap
+* MySQL
 
 ### Tech stack
 
