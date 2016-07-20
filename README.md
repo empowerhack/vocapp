@@ -27,7 +27,7 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 
 ### Project Manager
 
-* TBC
+* [Natsuki Pope] (https://github.com/nzi102)
 
 ### Team Members
 
