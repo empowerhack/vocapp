@@ -1,4 +1,4 @@
-# VocApp 
+# VocApp
 
 | Phase | Prototype |
 | ----- | -------------- |
@@ -39,7 +39,7 @@ Architect & Development Team:
 * TBC - Data Architect
 
 Research & Content
-* Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org) 
+* Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org)
 * Advisory - Ben Webster, Jamiya Project (Slack: benwebster, Email: ben@jamiya.org)
 * TBC - Data Gathering
 * TBC - Data Input
@@ -68,3 +68,12 @@ Research & Content
 ### Hosting
 
 * TBC
+
+
+---
+
+#### Don't forget to:
+```
+bin/rake db:create
+bin/rake db:migrate
+```
