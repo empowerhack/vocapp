@@ -25,24 +25,20 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 * EmpowerHack - [Kim Lawrie](https://github.com/atmostat), [Eddie Jaoude](https://github.com/eddiejaoude)
 * Jamiya Project - [Ben Webster](https://github.com/benwebster0)
 
-### Project Manager
+### PM/Scrum Master 
 
 * [Natsuki Pope] (https://github.com/nzi102)
 
 ### Team Members
 
 Architect & Development Team:
-* TBC - UX Designer
-* TBC - UI Designer
-* TBC - Frontend Developer
-* TBC - Backend Developer
-* TBC - Data Architect
+* TBC - UX 
+* Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc)
 
 Research & Content
 * Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org) 
 * Advisory - Ben Webster, Jamiya Project (Slack: benwebster, Email: ben@jamiya.org)
-* TBC - Data Gathering
-* TBC - Data Input
+* Data Gathering - Oula, Jamiya Project (Email: oula@jamiya.org)
 
 ### Architecture
 
