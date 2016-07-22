@@ -1,1 +1,13 @@
   [1m[36m (557.4ms)[0m  [1mCREATE DATABASE "vocapp_development" ENCODING = 'unicode'[0m
+
+
+Started GET "/" for ::1 at 2016-07-22 15:15:53 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Paul/.rvm/gems/ruby-2.2.3/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 17ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-22 15:32:59 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/Paul/.rvm/gems/ruby-2.2.3/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.0ms)
