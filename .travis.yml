@@ -5,3 +5,10 @@ rvm:
 before_script:
   - bin/rake db:create
   - bin/rake db:migrate
+
+deploy:
+  api_key:
+    secure: q8ak6RwrqgQraTJmM4ABTbqS4nwPzwIoTBxWrQ5/9TlfzpF+PazSU7u1nf6EN5bdjLoL6sCBpbP7WU9/Q1Fd/vHqhJZ0fQoNyNUzDL7VQwmysAshW/yOy6KwEfsfuIxOs5iGKwbdGe+NpzarMq7G/2PQR0CSTvzwU84PdgwpOconyKpuCGTWS53XF3Vu/1K9dJO41KkQwu3QWDUkOEMOha/8Wy6dBYKH9CNDnoRAoR14cD9dkC4rL8pQyyK1NxQDKforNpjmqX3gzlqv/qFjy5gJFkgGUP2uSLwtJAtk3W93dU1AfFxIRPNSpci8t7aQiEDg3xZuFSkHULQsvhgHiCkB8n9NWPBxhR6iBtxBiUwc5j+/+yps2JvnvbbOB+LWyJIAS2XyGfBide6sXQCpc12Chr/clqq9jjSuniUkg2+RvDL8RE2NeV5N3qznJyL/Td0QXmDDHkauRuNKDdXvSSaDztgriNCqZwNVRd+SNXEvrq3gH2MrV7muHaoaylwjNqDmtvBLuO9w14zqLOKNoWpYe8LGRQbrM9JPbuQsv2y/BtybPQH+161i0auDW8pnh/4e5tgZyFyc5xjnS2R49z8b4jIZJGQH4o/L/G8ln/XcLHuHZGrAb3Ja+OlcY+nBh3G8G8/0f2nKEhCyYw4ELU9CvpK1EhzuaPfQOi6+6VE=
+  app:
+    prototype-v0.1: vocapp
+ 
