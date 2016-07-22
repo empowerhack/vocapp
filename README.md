@@ -1,5 +1,7 @@
 # VocApp
 
+[![Build Status](https://travis-ci.org/empowerhack/vocapp.svg?branch=travis-ci)](https://travis-ci.org/empowerhack/vocapp)
+
 | Phase | Prototype |
 | ----- | -------------- |
 | Due date | 2nd Sept 2016  |
