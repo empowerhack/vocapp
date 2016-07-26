@@ -1,4 +1,4 @@
-# VocApp 
+# VocApp
 
 | Phase | Prototype |
 | ----- | -------------- |
@@ -36,7 +36,7 @@ Architect & Development Team:
 * Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolly Neville] (https://github.com/rhiannonruth)
 
 Research & Content
-* Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org) 
+* Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org)
 * Advisory - Ben Webster, Jamiya Project (Slack: benwebster, Email: ben@jamiya.org)
 * Data Gathering - Oula, Jamiya Project (Email: oula@jamiya.org)
 
@@ -67,3 +67,12 @@ Research & Content
 ### Hosting
 
 * TBC
+
+
+---
+
+#### Don't forget to:
+```
+bin/rake db:create
+bin/rake db:migrate
+```
