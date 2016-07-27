@@ -68,7 +68,7 @@ Research & Content
 
 #### Don't forget to:
 ```
-bin
-/rake db:create
+bin/rake db:create
 bin/rake db:migrate
+bin/rake db:reset
 ```
