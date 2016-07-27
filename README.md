@@ -32,7 +32,7 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 ### Team Members
 
 Architect & Development Team:
-* TBC - UX
+* UX: Victoria Ogundare 
 * Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolley Neville] (https://github.com/rhiannonruth)
 
 Research & Content
@@ -46,11 +46,6 @@ Research & Content
 * Ruby
 * Twitter Bootstrap
 * MySQL
-
-### Tech stack
-
-* TBC
-
 
 ### Terminology
 
