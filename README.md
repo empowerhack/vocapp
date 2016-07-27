@@ -33,7 +33,7 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 
 Architect & Development Team:
 * TBC - UX
-* Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolly Neville] (https://github.com/rhiannonruth)
+* Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolley Neville] (https://github.com/rhiannonruth)
 
 Research & Content
 * Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org)
