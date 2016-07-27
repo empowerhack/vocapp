@@ -25,15 +25,15 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 * EmpowerHack - [Kim Lawrie](https://github.com/atmostat), [Eddie Jaoude](https://github.com/eddiejaoude)
 * Jamiya Project - [Ben Webster](https://github.com/benwebster0)
 
-### PM/Scrum Master 
+### PM/Scrum Master
 
 * [Natsuki Pope] (https://github.com/nzi102)
 
 ### Team Members
 
 Architect & Development Team:
-* TBC - UX 
-* Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolly Neville] (https://github.com/rhiannonruth)
+* TBC - UX
+* Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolley Neville] (https://github.com/rhiannonruth)
 
 Research & Content
 * Content & User Research - Malaz Safarjalani, Jamiya Project (Slack: malaz_jamiya, Email: malaz@jamiya.org)
@@ -73,6 +73,7 @@ Research & Content
 
 #### Don't forget to:
 ```
-bin/rake db:create
+bin
+/rake db:create
 bin/rake db:migrate
 ```
