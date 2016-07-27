@@ -1,0 +1,19 @@
+<a href='/'>Back to Search</a>
+<div>
+<table>
+  <tbody>
+        <h2>Search Results</h2>
+    <% @terms.each do |term| %>
+      <tr>
+        
+        <td><ul>
+            <li><%= term.term_en %></li>
+            <lib><%= term.ac_field_en %></li>
+          </ul>
+        </td>
+        <td><%= term.definition_ar %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
+</div>
