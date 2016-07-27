@@ -1,6 +1,11 @@
 class TermsController < ApplicationController
+
   def index
     @terms = Term.all
+  end
+
+  def new
+    @term = Term.new(term_params)
   end
 
   def create
@@ -12,7 +17,8 @@ class TermsController < ApplicationController
   end
 
   def update
-    @term = Term.find(params[:id])
+    @original_term = Term.find(params[:id])
+    @updated_term = term.update(term_params)
   end
 
   def destroy
