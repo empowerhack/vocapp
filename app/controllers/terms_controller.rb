@@ -1,4 +1,5 @@
 class TermsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index, :show]
 
   def index
     @terms = Term.all
@@ -10,6 +11,12 @@ class TermsController < ApplicationController
 
   def create
     @term = Term.new(term_params)
+    @user = current_user
+    @term = @user.term.new(term_params)
+    if @term.save
+      redirect_to term_path
+    else
+    end
   end
 
   def show
