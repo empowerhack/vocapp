@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  term_en: MyString
+  term_ar: MyString
+  ac_field_en: MyString
+  ac_field_ar: MyString
+  definition_en: MyString
+  definition_ar: MyString
+  context_en: MyString
+  context_ar: MyString
+
+two:
+  term_en: MyString
+  term_ar: MyString
+  ac_field_en: MyString
+  ac_field_ar: MyString
+  definition_en: MyString
+  definition_ar: MyString
+  context_en: MyString
+  context_ar: MyString
