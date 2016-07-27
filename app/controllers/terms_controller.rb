@@ -1,24 +1,21 @@
 class TermsController < ApplicationController
   def index
-    render json: Term.all
+    @terms = Term.all
   end
 
   def create
-    term = Term.new(term_params)
-    render json:term if term.save
+    @term = Term.new(term_params)
   end
 
   def show
-    render json: Term.find(params[:id])
+    @term = Term.find(params[:id])
   end
 
   def update
-    term = Term.find(params[:id])
-    render json: term.update(term_params)
+    @term = Term.find(params[:id])
   end
 
   def destroy
-    term = Term.find(params[:id])
-    render json: term.destroy
+    @term = Term.find(params[:id])
   end
 end
