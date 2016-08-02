@@ -2,12 +2,23 @@ class TermsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    if params
-      query = params[:term_en]
-      @terms = Term.where(term_en: query)
+    if params[:term_en]
+      @terms =  unfiltered_results(params[:term_en])
     else
       @terms = Term.all
     end
+    if params[:field_list]
+      @terms = filtered_results(params[:field_list])
+    end
+  end
+
+
+  def unfiltered_results(query)
+    Term.where(term_en: query)
+  end
+
+  def filtered_results(field)
+    @terms.where(ac_field_en: field)
   end
 
   def new
