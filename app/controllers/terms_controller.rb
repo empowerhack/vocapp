@@ -1,11 +1,12 @@
 class TermsController < ApplicationController
+  include TermsHelper
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    if params[:term_en]
+    if search_contains_characters(params)
       @terms =  unfiltered_results(params[:term_en])
     else
-      @terms = Term.all
+      @terms = Term.all.order(:term_en)
     end
     if params[:ac_field_en]
       @terms = filtered_results(params[:ac_field_en])
@@ -14,7 +15,7 @@ class TermsController < ApplicationController
 
 
   def unfiltered_results(query)
-    Term.where(term_en: query)
+    Term.where(term_en: query).order(:term_en)
   end
 
   def filtered_results(field)
