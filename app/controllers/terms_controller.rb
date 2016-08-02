@@ -4,11 +4,22 @@ class TermsController < ApplicationController
 
   def index
     if search_contains_characters(params)
-      query = params[:term_en]
-      @terms = Term.where(term_en: query).order(:term_en)
+      @terms =  unfiltered_results(params[:term_en])
     else
       @terms = Term.all.order(:term_en)
     end
+    if params[:ac_field_en]
+      @terms = filtered_results(params[:ac_field_en])
+    end
+  end
+
+
+  def unfiltered_results(query)
+    Term.where(term_en: query).order(:term_en)
+  end
+
+  def filtered_results(field)
+    @terms.where(ac_field_en: field)
   end
 
   def new
