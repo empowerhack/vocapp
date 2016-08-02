@@ -1,8 +1,9 @@
 class TermsController < ApplicationController
+  include TermsHelper
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    if params
+    if search_contains_characters(params)
       query = params[:term_en]
       @terms = Term.where(term_en: query)
     else
