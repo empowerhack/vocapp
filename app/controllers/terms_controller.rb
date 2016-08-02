@@ -7,8 +7,8 @@ class TermsController < ApplicationController
     else
       @terms = Term.all
     end
-    if params[:field_list]
-      @terms = filtered_results(params[:field_list])
+    if params[:ac_field_en]
+      @terms = filtered_results(params[:ac_field_en])
     end
   end
 

@@ -2,7 +2,7 @@
   <input type="text" name="term_en" placeholder="Search"/>
   <input type="submit" value="Search">
 </form>
-<select name ="field_list" form="term_search">
+<select name ="ac_field_en" form="term_search">
   <option value="" disabled selected>(Optional)Pick a field...</option>
   <% @fields.each do |field| %>
     <option value="<%= field %>"><%= field %></option>
