@@ -5,9 +5,9 @@ class TermsController < ApplicationController
   def index
     if search_contains_characters(params)
       query = params[:term_en]
-      @terms = Term.where(term_en: query)
+      @terms = Term.where(term_en: query).order(:term_en)
     else
-      @terms = Term.all
+      @terms = Term.all.order(:term_en)
     end
   end
 
