@@ -15,7 +15,7 @@ class TermsController < ApplicationController
 
 
   def unfiltered_results(query)
-    Term.where(term_en: query).order(:term_en)
+    Term.where(term_en: query.downcase).order(:term_en)
   end
 
   def filtered_results(field)
