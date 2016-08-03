@@ -3,6 +3,7 @@ class TermsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
+    @searched_term = params[:term_en]
     if search_contains_characters(params)
       @terms =  unfiltered_results(params[:term_en])
     else
