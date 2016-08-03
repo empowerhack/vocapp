@@ -23,11 +23,11 @@ class TermsController < ApplicationController
 
   def create
     @term = Term.new(term_params)
-    #@user = current_user
-    #@term = @user.term.new(term_params)
     if @term.save
+      flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
       redirect_to '/'
     else
+      flash[:notice] = "Sorry, there was a problem submitting your new term."
       redirect_to '/terms/new'
     end
   end
