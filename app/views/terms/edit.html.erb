@@ -1,0 +1,56 @@
+<%= form_for(@term, :url => {:action => 'update'}) do |t| %>
+  <div class="form-group">
+    <%= t.label 'English Term' %>
+    <%= t.text_field "term_en" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'English Field' %>
+    <%= t.text_field "ac_field_en" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'English Context' %>
+    <%= t.text_field "context_en" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'Arabic Term' %>
+    <%= t.text_field "term_ar" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'Arabic Field' %>
+    <%= t.text_field "ac_field_ar" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'Arabic Context' %>
+    <%= t.text_field "context_ar" %>
+  </div>
+  <%= t.submit "Submit" %>
+<% end %>
+
+
+<!-- <form action="/terms/<%=@term.id%>/update" method="post">
+  <div class="form-group">
+    <label for="term_en">English Term</label>
+    <input type="text" class="form-control" value='<%=@term.term_en%>' readonly>
+  </div>
+  <div class="form-group">
+    <label for="ac_field_en">English Field</label>
+    <input type="text" class="form-control" value='<%=@term.ac_field_en%>' readonly>
+  </div>
+  <div class="form-group">
+    <label for="context_en">English Context</label>
+    <input type="text" class="form-control" value='<%=@term.context_en%>' readonly>
+  </div>
+  <div class="form-group">
+    <label for="term_ar">Arabic Term</label>
+    <input type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="ac_field_ar">Arabic Field</label>
+    <input type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="context_ar">Arabic Context</label>
+    <input type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form> -->
