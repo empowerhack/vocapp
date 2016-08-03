@@ -1,19 +1,24 @@
 Given(/^there's a search button$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit '/'
+  expect(page).to have_button "Search"
 end
 
 When(/^I type 'algorithm' into the search field and click search$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in :term_en, with: "algorithm"
+  click_button("Search")
 end
 
 Then(/^I should see the Terms page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_path).to eq '/terms'
 end
 
 Then(/^I should see a table$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_table "terms_table"
 end
 
 Then(/^in the first cell of the table I should see 'algorithm' and 'Information technology'$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.all('#poo').each do |td|
+    expect(page).to have_content "algorithm"
+  end
+  #expect(page.td(text: "algorithm")).to exist
 end
