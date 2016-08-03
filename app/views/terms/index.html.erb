@@ -14,8 +14,14 @@
                 <li><%= term.ac_field_en %></li>
               </ul>
             </td>
+            <% if term.definition_ar == nil %>
+              <td>
+            <li>  No answer yet. <a href="/terms/<%=term.id%>/edit">Answer this request</a> </li> 
+              </td>
+          <%else%>
             <td><%= term.definition_ar %>
             <a href="terms/<%=term.id%>">More</a></td>
+          <%end%>
           </tr>
         <% end %>
       <%end%>
