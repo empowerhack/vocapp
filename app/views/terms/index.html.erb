@@ -2,8 +2,11 @@
 <div>
   <table>
     <tbody>
+ <% if @terms.size == 0 %>
+        <h2>No results</h2>
+      <%else%>
       <h2>Search Results</h2>
-      <% @terms.each do |term| %>
+           <% @terms.each do |term| %>
         <tr>
           <td>
             <ul>
@@ -16,6 +19,7 @@
           
         </tr>
       <% end %>
+    <%end%>
     </tbody>
   </table>
 </div>

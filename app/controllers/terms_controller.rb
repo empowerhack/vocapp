@@ -11,15 +11,9 @@ class TermsController < ApplicationController
     if params[:ac_field_en]
       @terms = filtered_results(params[:ac_field_en])
     end
-  end
-
-
-  def unfiltered_results(query)
-    Term.where(term_en: query).order(:term_en)
-  end
-
-  def filtered_results(field)
-    @terms.where(ac_field_en: field)
+    puts "THISONEHERE"
+    puts @terms
+    puts unfiltered_results(params[:term_en])
   end
 
   def new
