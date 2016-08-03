@@ -10,7 +10,6 @@ module TermsHelper
   end
 
   def unfiltered_results(query)
-    puts "TOMTOM"
     Term.where(term_en: query).order(:term_en)
   end
 

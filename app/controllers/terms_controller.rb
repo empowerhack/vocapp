@@ -11,9 +11,6 @@ class TermsController < ApplicationController
     if params[:ac_field_en]
       @terms = filtered_results(params[:ac_field_en])
     end
-    puts "THISONEHERE"
-    puts @terms
-    puts unfiltered_results(params[:term_en])
   end
 
   def new
