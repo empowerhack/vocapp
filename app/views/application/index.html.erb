@@ -1,10 +1,14 @@
-  <form role="form" action="/terms" method="get" id="term_search">
-  <input type="text" name="term_en" placeholder="Search"/>
-  <input type="submit" value="Search">
+<form role="form" action="/terms" method="get" id="term_search">
+  <div class="form-group col-xs-3">
+    <input type="text" name="term_en" placeholder="Search"/>
+    <input type="submit" value="Search">
+  </div>
 </form>
-<select name ="ac_field_en" form="term_search">
-  <option value="" disabled selected>(Optional)Pick a field...</option>
-  <% @fields.each do |field| %>
-    <option value="<%= field %>"><%= field %></option>
-  <% end %>
-</select>
+<div class="form-group col-xs-3">
+  <select class="form-control input-sm" name ="ac_field_en" form="term_search">
+      <option value="" disabled selected>(Optional)Pick a field...</option>
+      <% @fields.each do |field| %>
+        <option value="<%= field %>"><%= field %></option>
+      <% end %>
+  </select>
+</div>
