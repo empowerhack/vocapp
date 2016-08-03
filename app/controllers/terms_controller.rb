@@ -15,16 +15,20 @@ class TermsController < ApplicationController
   end
 
   def new
-    @term = Term.new(term_params)
+    @term = Term.new
+    @fields = Term.all.map do |i|
+      i.ac_field_en
+    end.uniq
   end
 
   def create
     @term = Term.new(term_params)
-    @user = current_user
-    @term = @user.term.new(term_params)
+    #@user = current_user
+    #@term = @user.term.new(term_params)
     if @term.save
-      redirect_to term_path
+      redirect_to '/'
     else
+      redirect_to '/terms/new'
     end
   end
 
