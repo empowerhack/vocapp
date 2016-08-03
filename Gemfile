@@ -47,6 +47,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
