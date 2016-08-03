@@ -13,15 +13,6 @@ class TermsController < ApplicationController
     end
   end
 
-
-  def unfiltered_results(query)
-    Term.where(term_en: query.downcase).order(:term_en)
-  end
-
-  def filtered_results(field)
-    @terms.where(ac_field_en: field)
-  end
-
   def new
     @term = Term.new(term_params)
   end
