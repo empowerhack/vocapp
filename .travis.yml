@@ -1,0 +1,8 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: aCHZdczEUjPwmyZdOquYtlvb49jMj9NfotRBHFe/pPVipkVJ1ywIf/bHOemyeOn3+6esfnJ2ZCv8oVjxR0RIdRU9k+3TSRM/PQ+vWnlo9w0TsVcKQPOjWGMMK0ZTJgnpWW2U/O1He48GpoGWRKoHhSTWTmRrqv32dLFpE36mEsiaZxt3YMQ6rQBGrdux8NUIcQDJoDTl/MWI6rq4IX9BNefM3EXdAahl6VqMiZtcoFUluQdnBn355Dd+KPpyqduFxNcATetZfWMHrhCXSn4VnguRY5arz4WIk60kBd39zmeBlVGoJwZ+55BIC6UVKgfhbGeiZ78StiZyUKefj3VUXJ91Sxc5QfEvMHGKabUvNBBFxXuVgPCTAwNgL5BeVvahswDkAHZn8aGBH//vg+oV/QKZwuj09/V39dHqZQfaiAbtqkW57uS/Z6a7lrjG2BVO2P5nQ5nSaKcwGF3SsITjN1FIchZdPeUJg7x87LXxcCUQOgNcnNKrcHAIQI6rNVt/kLtqfz6+RnaYcg8uEOnXR89irSN0zDc/ULSPmwYdiexpUXZdRMlVzT/dL9wTpADcCUZ8WAoI7D4JB7MtydOAlaoSHd+NEcjjX29XeOWzTCGvS6kCyKFc5Y4WCQQx1yr0i+sKT/REF+q2P4myLcxxyIR/cTdp8BqVoc1hQjoyic4=
+  app: vocabulary-app
+  on:
+    repo: empowerhack/vocapp
+    branch: prototype-v0.1
