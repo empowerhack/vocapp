@@ -105,8 +105,9 @@ localhost:3000
 
 * To see a term with multiple fields - search for 'algorithm'
 
-* To see an unanswered term and provide definition - search for 'function'
+* To see an unanswered term and provide definition - First sign up, then search for 'function'
 
-* To add a term - search for word of your choosing!
+* To add a term - be logged in and search for word of your choosing and click
+add term!
 
 
