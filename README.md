@@ -67,46 +67,46 @@ Research & Content
 ---
 
 #### Installation Instructions
-clone the repo. In terminal or other command line tool enter
+1. Clone the repo. In terminal or other command line tool enter
 ```
 git clone https://github.com/empowerhack/vocapp.git
 ```
-move into project folder
+2. move into project folder
 ```
 cd vocapp
 ```
-If you know you have bundler installed skip this step. If you're not sure put in
+3. If you know you have bundler installed skip this step. If you're not sure put in
 following
 ```
 gem install bundler
 ```
-install all gems
+4. Install all gems
 ```
 bundle install
 ```
-enter each of below commands to set up database and seed with example data
+5. Enter each of below commands to set up database and seed with example data
 ```
 bin/rake db:create
 bin/rake db:migrate
 bin/rake db:reset
 ```
-finally to run the application
+6. Finally to run the application
 ```
 rails s
 ```
 
-In your browser go to 
+7. In your browser go to 
 ```
 localhost:3000
 ```
 
 #### Steps to see all features
-To see all terms - leave search box empty and click search
+* To see all terms - leave search box empty and click search
 
-To see a term with multiple fields - search for 'algorithm'
+* To see a term with multiple fields - search for 'algorithm'
 
-To see an unanswered term and provide definition - search for 'function'
+* To see an unanswered term and provide definition - search for 'function'
 
-To add a term - search for word of your choosing!
+* To add a term - search for word of your choosing!
 
 
