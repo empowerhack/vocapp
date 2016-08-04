@@ -36,9 +36,14 @@ class TermsController < ApplicationController
     @term = Term.find(params[:id])
   end
 
+  def edit
+    @term = Term.find(params[:id])
+  end
+
   def update
-    @original_term = Term.find(params[:id])
-    @updated_term = term.update(term_params)
+    term = Term.find(params[:id])
+    term.update(term_params)
+    redirect_to term_path
   end
 
   def destroy
