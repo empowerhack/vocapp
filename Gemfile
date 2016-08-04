@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+
+gem 'puma'
+
+ruby '2.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -53,6 +57,8 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
 end
+
+gem 'rails_12factor', group: :production
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
