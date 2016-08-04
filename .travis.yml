@@ -1,3 +1,7 @@
+language: ruby
+rvm:
+  - 2.2
+
 deploy:
   provider: heroku
   api_key:
@@ -6,5 +10,3 @@ deploy:
   on:
     repo: empowerhack/vocapp
     branch: prototype-v0.1
-  rvm:
-  - 2.2
