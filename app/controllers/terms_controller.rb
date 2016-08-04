@@ -38,10 +38,7 @@ class TermsController < ApplicationController
 
   def update
     term = Term.find(params[:id])
-    term.update(term_ar:     params[:term_ar],
-                ac_field_ar: params[:ac_field_ar],
-                context_ar:  params[:context_ar])
-    term.save
+    term.update(term_params)
     redirect_to term_path
   end
 
