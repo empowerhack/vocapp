@@ -3,6 +3,7 @@ class TermsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
+    @searched_term = params[:term_en]
     if search_contains_characters(params)
       @terms =  unfiltered_results(params[:term_en])
     else
@@ -13,26 +14,21 @@ class TermsController < ApplicationController
     end
   end
 
-
-  def unfiltered_results(query)
-    Term.where(term_en: query).order(:term_en)
-  end
-
-  def filtered_results(field)
-    @terms.where(ac_field_en: field)
-  end
-
   def new
-    @term = Term.new(term_params)
+    @term = Term.new
+    @fields = Term.all.map do |i|
+      i.ac_field_en
+    end.uniq
   end
 
   def create
     @term = Term.new(term_params)
-    @user = current_user
-    @term = @user.term.new(term_params)
     if @term.save
-      redirect_to term_path
+      flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
+      redirect_to '/'
     else
+      flash[:notice] = "Sorry, there was a problem submitting your new term."
+      redirect_to '/terms/new'
     end
   end
 

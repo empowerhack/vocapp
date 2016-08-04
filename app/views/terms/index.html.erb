@@ -2,20 +2,29 @@
 <div>
   <table id="terms_table">
     <tbody>
-      <h2>Search Results</h2>
-      <% @terms.each do |term| %>
-        <tr>
-          <td>
-            <ul>
-              <li><%= term.term_en %></li>
-              <li><%= term.ac_field_en %></li>
-            </ul>
-          </td>
-          <td><%= term.definition_ar %>
-          <a href="terms/<%=term.id%>">More</a></td>
-
-        </tr>
-      <% end %>
+      <% if @terms.size == 0 %>
+        <h2>No results for '<%=@searched_term%>' <a href="/terms/new">add a term</a></h2>
+      <%else%>
+        <h2>Search Results</h2>
+        <% @terms.each do |term| %>
+          <tr>
+            <td>
+              <ul>
+                <li><%= term.term_en %></li>
+                <li><%= term.ac_field_en %></li>
+              </ul>
+            </td>
+            <% if term.definition_ar == nil %>
+              <td>
+            <li>  No answer yet. <a href="/terms/<%=term.id%>/edit">Answer this request</a> </li>
+              </td>
+          <%else%>
+            <td><%= term.definition_ar %>
+            <a href="terms/<%=term.id%>">More</a></td>
+          <%end%>
+          </tr>
+        <% end %>
+      <%end%>
     </tbody>
   </table>
 </div>
