@@ -8,8 +8,12 @@
     <%= t.text_field "ac_field_en", readonly: true %>
   </div>
   <div class="form-group">
-    <%= t.label 'English Context' %>
-    <%= t.text_field "context_en", readonly: true %>
+    <%= t.label 'English Definition' %><br>
+    <%= t.text_area "definition_en", readonly: true %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'English Context' %><br>
+    <%= t.text_area "context_en", readonly: true %>
   </div>
   <div class="form-group">
     <%= t.label 'Arabic Term' %>
@@ -20,8 +24,12 @@
     <%= t.text_field "ac_field_ar" %>
   </div>
   <div class="form-group">
-    <%= t.label 'Arabic Context' %>
-    <%= t.text_field "context_ar" %>
+    <%= t.label 'Arabic Definition' %><br>
+    <%= t.text_area "definition_ar" %>
+  </div>
+  <div class="form-group">
+    <%= t.label 'Arabic Context' %><br>
+    <%= t.text_area "context_ar" %>
   </div>
   <%= t.submit "Submit" %>
 <% end %>
