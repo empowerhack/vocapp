@@ -9,7 +9,7 @@ class TermsController < ApplicationController
     else
       @terms = Term.all.order(:term_en)
     end
-    if params[:ac_field_en]
+    if params[:ac_field_en] != ""
       @terms = filtered_results(params[:ac_field_en])
     end
   end

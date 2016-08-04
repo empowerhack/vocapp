@@ -50,10 +50,12 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'launchy'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'pry'
 end
 
 group :development do

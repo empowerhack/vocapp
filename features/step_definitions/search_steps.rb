@@ -4,24 +4,20 @@ Given(/^there's a search button$/) do
 end
 
 When(/^I type 'algorithm' into the search field and click search$/) do
-  fill_in "term_en", with: "algorithm"
-  save_and_open_page
+  fill_in :term_en, with: "algorithm"
   click_button("Search")
 end
 
-Then(/^I should see the Terms page$/) do
-  expect(current_path).to eq '/terms?term_en=algorithm'
+Then(/^I should see the algorithm search results$/) do
+  url = URI.parse(current_url)
+  expect("#{url.path}?#{url.query}").to include '/terms?term_en=algorithm'
 end
 
 Then(/^I should see a table$/) do
   expect(page).to have_table "terms_table"
 end
 
-Then(/^show me the page$/) do
-  save_and_open_page
-end
-
 Then(/^in the first cell of the table I should see 'algorithm' and 'Information technology'$/) do
-  byebug
-  find('//table/tbody/tr/td')
+  expect(page.first('//td').text).to include "algorithm"
+  expect(page.first('//td').text).to include "Information technology"
 end
