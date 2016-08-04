@@ -6,3 +6,5 @@ deploy:
   on:
     repo: empowerhack/vocapp
     branch: prototype-v0.1
+  rvm:
+  - 2.2
