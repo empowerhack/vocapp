@@ -1,7 +1,7 @@
 module TermsHelper
 
   def term_params
-    params.permit(:term_en, :field_id)
+    params.permit(:term_en, :field_id, :user_id)
     # disallowed params for now
     #:term_ar, :ac_field_en, :ac_field_ar, :definition_en, :definition_ar, :context_en, :context_ar)
   end

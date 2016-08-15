@@ -24,6 +24,7 @@ class TermsController < ApplicationController
   def create
     @field = Field.find(term_params[:field_id])
     @term = @field.terms.new(term_params)
+    @term.user_id = current_user.id
     if @term.save
       flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
       redirect_to '/'
