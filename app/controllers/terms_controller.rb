@@ -24,10 +24,7 @@ class TermsController < ApplicationController
 
   def create
     @field = Field.find(term_params[:field_id])
-    p term_params
-    p @field
     @term = @field.terms.new(term_params)
-
     if @term.save
       flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
       redirect_to '/'
@@ -39,6 +36,8 @@ class TermsController < ApplicationController
 
   def show
     @term = Term.find(params[:id])
+    @fields = Field.all
+    @answers = Answer.where(term_id: @term.id)
   end
 
   def edit

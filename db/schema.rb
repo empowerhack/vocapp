@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815121644) do
+ActiveRecord::Schema.define(version: 20160815140006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "definition"
+    t.integer  "upvotes"
+    t.integer  "downvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "term_id"
+  end
+
+  add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
 
   create_table "fields", force: :cascade do |t|
     t.string   "name"
@@ -59,5 +70,6 @@ ActiveRecord::Schema.define(version: 20160815121644) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "answers", "terms"
   add_foreign_key "terms", "fields"
 end
