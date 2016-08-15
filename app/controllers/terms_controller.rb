@@ -8,6 +8,7 @@ class TermsController < ApplicationController
       @terms =  unfiltered_results(params[:term_en])
     else
       @terms = Term.all.order(:term_en)
+      @fields = Field.all
     end
     if params[:ac_field_en]
       @terms = filtered_results(params[:ac_field_en])
@@ -16,13 +17,17 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
-    @fields = Term.all.map do |i|
-      i.ac_field_en
+    @fields = Field.all.map do |i|
+      i
     end.uniq
   end
 
   def create
-    @term = Term.new(term_params)
+    @field = Field.find(term_params[:field_id])
+    p term_params
+    p @field
+    @term = @field.terms.new(term_params)
+
     if @term.save
       flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
       redirect_to '/'

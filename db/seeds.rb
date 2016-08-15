@@ -6,11 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-require 'csv'
+# require 'csv'
+#
+# csv_text = Rails.root.join('lib', 'seeds', 'vocapp_test_csv.csv')
+#
+# CSV.foreach(csv_text, headers: true) do |row|
+#   term_hash = row.to_hash
+#   Term.create!(term_hash)
+# end
 
-csv_text = Rails.root.join('lib', 'seeds', 'vocapp_test_csv.csv')
-
-CSV.foreach(csv_text, headers: true) do |row|
-  term_hash = row.to_hash
-  Term.create!(term_hash)
-end
+Field.create!(name:"Information Technology")
+Field.create!(name:"Mathematics")
