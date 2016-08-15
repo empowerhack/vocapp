@@ -4,22 +4,21 @@ class TermsController < ApplicationController
 
   def index
     @searched_term = params[:term_en]
+    @fields = Field.all
+    @answers = Answer.all
     if search_contains_characters(params)
       @terms =  unfiltered_results(params[:term_en])
     else
       @terms = Term.all.order(:term_en)
-      @fields = Field.all
     end
-    if params[:ac_field_en]
-      @terms = filtered_results(params[:ac_field_en])
+    if params[:field_id]
+      @terms = filtered_results(params[:field_id])
     end
   end
 
   def new
     @term = Term.new
-    @fields = Field.all.map do |i|
-      i
-    end.uniq
+    @fields = Field.all  
   end
 
   def create

@@ -15,8 +15,8 @@ module TermsHelper
     Term.where(term_en: query).order(:term_en)
   end
 
-  def filtered_results(field)
-    @terms.where(ac_field_en: field)
+  def filtered_results(field_id)
+    @terms.where(field_id: field_id)
   end
 
 end

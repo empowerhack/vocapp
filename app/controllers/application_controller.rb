@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
 
   def index
-    @fields = Term.all.map do |i|
-      i.ac_field_en
-    end.uniq
+    @fields = Field.all 
   end
 end
