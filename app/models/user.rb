@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
      end
    end
  end
+
+  def has_upvoted?(answer)
+    upvoted_answers.include? answer
+  end
 end
