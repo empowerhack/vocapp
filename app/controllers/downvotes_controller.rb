@@ -3,7 +3,7 @@ class DownvotesController < ApplicationController
 
   def show
     answer = Answer.find(params[:answer_id])
-    downvote = answer.downvotes.find(params[:id])
+    downvote = Downvote.find(params[:id])
     if current_user.has_downvoted? answer
       downvote.destroy
       redirect_to "/terms/#{params[:term_id]}"

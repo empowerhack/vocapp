@@ -3,7 +3,7 @@ class UpvotesController < ApplicationController
 
   def show
     answer = Answer.find(params[:answer_id])
-    upvote = answer.upvotes.find(params[:id])
+    upvote = Upvote.find(params[:id])
     if current_user.has_upvoted? answer
       upvote.destroy
       redirect_to "/terms/#{params[:term_id]}"
