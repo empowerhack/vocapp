@@ -12,7 +12,10 @@
     </tr>
     <% @answers.each do |answer| %>
     <tr>
-      <td><%= answer.definition %></td>
+      <td><%= answer.definition %>
+        submitted by <%=User.find(answer.user_id).email%>
+      </td>
+
     </tr>
     <% end %>
   </tbody>
