@@ -2,11 +2,14 @@ class UpvotesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def create
-    @answer = Answer.find(params[:answer_id])
-    if current_user.has_upvoted? @answer
+    answer = Answer.find(params[:answer_id])
+    if current_user.has_upvoted? answer
       flash[:notice] = 'You cannot upvote more than once'
+      redirect_to "/terms/#{params[:term_id]}"
     else
-      @answer.upvotes.create(upvote_params)
+      answer.upvotes.create(user_id: :user_id)
+      p params[:term_id]
+      redirect_to "/terms/#{params[:term_id]}"
     end
   end
 
@@ -16,11 +19,5 @@ class UpvotesController < ApplicationController
     if current_user.has_upvoted? answer
       upvote.destroy
     end
-  end
-
-private
-  def upvote_params
-    parameters[:user_id] = current_user.id
-    parameters
   end
 end

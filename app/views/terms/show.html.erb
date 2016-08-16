@@ -14,6 +14,11 @@
     <tr>
       <td><%= answer.definition %>
         submitted by <%=User.find(answer.user_id).email%>
+        Upvotes: <%=answer.upvotes.count%>
+
+        <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/upvotes" method='post'>
+          <button id="add-term-btn" type="submit" class="btn btn-default">Upvote</button>
+        </form>
       </td>
 
     </tr>

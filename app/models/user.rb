@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :terms
   has_many :answers
-  has_many :upvoted_answers, through: :upvotes, source :answers
+  has_many :upvotes
+  has_many :upvoted_answers, through: :upvotes, source: :answer
 
  def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
