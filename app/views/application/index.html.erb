@@ -5,10 +5,10 @@
   </div>
 </form>
 <div class="form-group col-xs-3">
-  <select class="form-control input-sm" name ="ac_field_en" form="term_search">
+  <select class="form-control input-sm" name ="field_id" form="term_search">
       <option value="" disabled selected>(Optional)Pick a field...</option>
       <% @fields.each do |field| %>
-        <option value="<%= field %>"><%= field %></option>
+        <option value="<%= field.id %>"><%= field.name %></option>
       <% end %>
   </select>
 </div>

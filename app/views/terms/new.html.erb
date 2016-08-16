@@ -8,10 +8,10 @@
 
   <div class="form-group col-xs-2">
     <label for="price">Choose academic field:</label>
-    <select class="form-control" name ="ac_field_en" form="term_search" required="true">
+    <select class="form-control" name ="field_id" form="term_search" required="true">
       <option value="" disabled selected>Pick a field...</option>
       <% @fields.each do |field| %>
-        <option value="<%= field %>"><%= field %></option>
+        <option value="<%= field.id %>"><%= field.name %></option>
       <% end %>
     </select>
   </div>

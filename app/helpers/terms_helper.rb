@@ -1,7 +1,9 @@
 module TermsHelper
 
   def term_params
-    params['term'].permit(:term_en, :term_ar, :ac_field_en, :ac_field_ar, :definition_en, :definition_ar, :context_en, :context_ar)
+    params.permit(:term_en, :field_id, :user_id)
+    # disallowed params for now
+    #:term_ar, :ac_field_en, :ac_field_ar, :definition_en, :definition_ar, :context_en, :context_ar)
   end
 
   def search_contains_characters(params)
@@ -13,8 +15,8 @@ module TermsHelper
     Term.where(term_en: query).order(:term_en)
   end
 
-  def filtered_results(field)
-    @terms.where(ac_field_en: field)
+  def filtered_results(field_id)
+    @terms.where(field_id: field_id)
   end
 
 end

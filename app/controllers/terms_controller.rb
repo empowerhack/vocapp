@@ -4,25 +4,27 @@ class TermsController < ApplicationController
 
   def index
     @searched_term = params[:term_en]
+    @fields = Field.all
+    @answers = Answer.all
     if search_contains_characters(params)
       @terms =  unfiltered_results(params[:term_en])
     else
       @terms = Term.all.order(:term_en)
     end
-    if params[:ac_field_en]
-      @terms = filtered_results(params[:ac_field_en])
+    if params[:field_id]
+      @terms = filtered_results(params[:field_id])
     end
   end
 
   def new
     @term = Term.new
-    @fields = Term.all.map do |i|
-      i.ac_field_en
-    end.uniq
+    @fields = Field.all  
   end
 
   def create
-    @term = Term.new(term_params)
+    @field = Field.find(term_params[:field_id])
+    @term = @field.terms.new(term_params)
+    @term.user_id = current_user.id
     if @term.save
       flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
       redirect_to '/'
@@ -34,6 +36,8 @@ class TermsController < ApplicationController
 
   def show
     @term = Term.find(params[:id])
+    @fields = Field.all
+    @answers = Answer.where(term_id: @term.id)
   end
 
   def edit

@@ -1,21 +1,30 @@
-<a href="#" onclick="history.go(-1)">Back to search results</a> 
+<a href="#" onclick="history.go(-1)">Back to search results</a>
 <table>
   <tbody>
     <tr>
       <td><%= @term.term_en %></td>
-      <td><%= @term.term_ar %></td>
     </tr>
     <tr>
-      <td><%= @term.ac_field_en %></td>
-      <td><%= @term.ac_field_ar %></td>
-    </tr>
-    <tr>
-      <td><%= @term.definition_en %></td>
-      <td><%= @term.definition_ar %></td>
+      <td><%= @fields.find(@term.field_id).name %></td>
     </tr>
     <tr>
       <td><%= @term.context_en %></td>
-      <td><%= @term.context_ar %></td>
     </tr>
+    <% @answers.each do |answer| %>
+    <tr>
+      <td><%= answer.definition %></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
+
+<%= form_for([@term, @term.answers.build]) do |f| %>
+
+  <p>
+    <%= f.label :definition %><br>
+    <%= f.text_area :definition %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

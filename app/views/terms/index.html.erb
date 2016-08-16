@@ -11,15 +11,15 @@
             <td>
               <ul>
                 <li><%= term.term_en %></li>
-                <li><%= term.ac_field_en %></li>
+                <li><%= @fields.find(term.field_id).name %></li>
               </ul>
             </td>
-            <% if term.definition_ar == nil %>
+            <% if term.answers.length == 0 %>
               <td>
-            <li>  No answer yet. <a href="/terms/<%=term.id%>/edit">Answer this request</a> </li> 
+            <li>  No answer yet. <a href="/terms/<%=term.id%>">Answer this request</a> </li>
               </td>
           <%else%>
-            <td><%= term.definition_ar %>
+            <td><%= term.answers[0].definition %>
             <a href="terms/<%=term.id%>">More</a></td>
           <%end%>
           </tr>
