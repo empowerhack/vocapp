@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :terms do
     resources :answers do
       resources :upvotes
+      resources :downvotes
     end
   end
 end

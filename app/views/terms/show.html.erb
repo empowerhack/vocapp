@@ -15,10 +15,25 @@
       <td><%= answer.definition %>
         submitted by <%=User.find(answer.user_id).email%>
         Upvotes: <%=answer.upvotes.count%>
-
-        <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/upvotes" method='post'>
-          <button id="add-term-btn" type="submit" class="btn btn-default">Upvote</button>
-        </form>
+        Downvotes: <%=answer.downvotes.count%>
+        <%if current_user.has_upvoted?(answer)%>
+          <button id="add-term-btn" class="btn btn-success">Upvote</button>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/upvotes/<%=Upvote.find_by(user_id: current_user.id).id%>" method='delete'>
+            <button id="add-term-btn" type="submit" class="btn btn-default">Downvote</button>
+          </form>
+        <% elsif current_user.has_downvoted?(answer)%>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/downvotes/<%=Downvote.find_by(user_id: current_user.id).id%>" method='delete'>
+            <button id="add-term-btn" type="submit" class="btn btn-default">Upvote</button>
+          </form>
+          <button id="add-term-btn" class="btn btn-danger">Downvote</button>
+        <% else %>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/upvotes" method='post'>
+            <button id="add-term-btn" type="submit" class="btn btn-default">Upvote</button>
+          </form>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/downvotes" method='post'>
+            <button id="add-term-btn" type="submit" class="btn btn-default">Downvote</button>
+          </form>
+        <%end%>
       </td>
 
     </tr>
