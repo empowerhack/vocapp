@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815155209) do
+ActiveRecord::Schema.define(version: 20160816130143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +37,9 @@ ActiveRecord::Schema.define(version: 20160815155209) do
 
   create_table "terms", force: :cascade do |t|
     t.string   "term_en"
-    t.string   "term_ar"
-    t.string   "ac_field_en"
-    t.string   "ac_field_ar"
-    t.string   "definition_en"
-    t.string   "definition_ar"
     t.string   "context_en"
-    t.string   "context_ar"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "field_id"
     t.integer  "user_id"
   end
