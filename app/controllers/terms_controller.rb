@@ -18,7 +18,7 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
-    @fields = Field.all  
+    @fields = Field.all
   end
 
   def create
