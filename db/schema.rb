@@ -90,10 +90,6 @@ ActiveRecord::Schema.define(version: 20160816161949) do
 
   add_foreign_key "answers", "terms"
   add_foreign_key "answers", "users"
-  add_foreign_key "downvotes", "answers"
-  add_foreign_key "downvotes", "users"
   add_foreign_key "terms", "fields"
   add_foreign_key "terms", "users"
-  add_foreign_key "upvotes", "answers"
-  add_foreign_key "upvotes", "users"
 end
