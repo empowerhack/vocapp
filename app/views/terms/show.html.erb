@@ -41,13 +41,17 @@
   </tbody>
 </table>
 
-<%= form_for([@term, @term.answers.build]) do |f| %>
+<% if user_signed_in? %>
+  <%= form_for([@term, @term.answers.build]) do |f| %>
 
-  <p>
-    <%= f.label :definition %><br>
-    <%= f.text_area :definition %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+    <p>
+      <%= f.label :definition %><br>
+      <%= f.text_area :definition %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+  <% else %>
+    <a href="../users/sign_in">Sign in</a> to add a definition 
 <% end %>
