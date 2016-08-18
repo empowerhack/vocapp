@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816130143) do
+ActiveRecord::Schema.define(version: 20160816161949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20160816130143) do
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+
+  create_table "downvotes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "answer_id"
+  end
+
+  add_index "downvotes", ["answer_id"], name: "index_downvotes_on_answer_id", using: :btree
+  add_index "downvotes", ["user_id"], name: "index_downvotes_on_user_id", using: :btree
 
   create_table "fields", force: :cascade do |t|
     t.string   "name"
@@ -46,6 +56,16 @@ ActiveRecord::Schema.define(version: 20160816130143) do
 
   add_index "terms", ["field_id"], name: "index_terms_on_field_id", using: :btree
   add_index "terms", ["user_id"], name: "index_terms_on_user_id", using: :btree
+
+  create_table "upvotes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "answer_id"
+  end
+
+  add_index "upvotes", ["answer_id"], name: "index_upvotes_on_answer_id", using: :btree
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -70,6 +90,10 @@ ActiveRecord::Schema.define(version: 20160816130143) do
 
   add_foreign_key "answers", "terms"
   add_foreign_key "answers", "users"
+  add_foreign_key "downvotes", "answers"
+  add_foreign_key "downvotes", "users"
   add_foreign_key "terms", "fields"
   add_foreign_key "terms", "users"
+  add_foreign_key "upvotes", "answers"
+  add_foreign_key "upvotes", "users"
 end
