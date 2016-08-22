@@ -34,6 +34,15 @@
             <button id="add-term-btn" type="submit" class="btn btn-default">Downvote</button>
           </form>
         <%end%>
+        <%if user_signed_in? && current_user.has_flagged?(answer)%>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/flags/<%=Flag.find_by(user_id: current_user.id, answer_id: answer.id).id%>" method='delete'>
+            <button id="add-term-btn" type="submit" class="btn btn-danger">Unflag</button>
+          </form>
+        <% else %>
+          <form role="form" action="/terms/<%=@term.id%>/answers/<%=answer.id%>/flags" method='post'>
+            <button id="add-term-btn" type="submit" class="btn btn-default">Flag</button>
+          </form>
+        <%end%>
       </td>
 
     </tr>
@@ -53,5 +62,5 @@
     </p>
   <% end %>
   <% else %>
-    <a href="../users/sign_in">Sign in</a> to add a definition 
+    <a href="../users/sign_in">Sign in</a> to add a definition
 <% end %>

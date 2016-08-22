@@ -7,8 +7,10 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :upvotes
   has_many :downvotes
+  has_many :flags
   has_many :upvoted_answers, through: :upvotes, source: :answer
   has_many :downvoted_answers, through: :downvotes, source: :answer
+  has_many :flagged_answers, through: :flags, source: :answer
 
  def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -31,5 +33,9 @@ class User < ActiveRecord::Base
 
   def has_downvoted?(answer)
     downvoted_answers.include? answer
+  end
+
+  def has_flagged?(answer)
+    flagged_answers.include? answer
   end
 end
