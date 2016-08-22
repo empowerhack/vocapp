@@ -19,4 +19,7 @@ module TermsHelper
     @terms.where(field_id: field_id)
   end
 
+  def user_exists?
+    !!current_user
+  end
 end
