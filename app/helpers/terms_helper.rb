@@ -18,8 +18,4 @@ module TermsHelper
   def filtered_results(field_id)
     @terms.where(field_id: field_id)
   end
-
-  def user_exists?
-    !!current_user
-  end
 end
