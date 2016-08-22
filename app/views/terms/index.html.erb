@@ -3,7 +3,7 @@
 <% if @terms.size == 0 %>
   <h2>No results for '<%=@searched_term%>' <a href="/terms/new">add a term</a></h2>
 <% else %>
-  <% term_titles.each do |title| %>
+  <% @term_titles.each do |title| %>
     <div class="card">
       <div class="card-block">
         <h2 class="card-header"><%= title %></h2>

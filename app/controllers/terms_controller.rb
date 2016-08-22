@@ -14,6 +14,7 @@ class TermsController < ApplicationController
     if params[:field_id]
       @terms = filtered_results(params[:field_id])
     end
+    @term_titles = get_unique(@terms)
   end
 
   def new
