@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Vocapp</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="jquery-1.12.4.min.js"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Terms</a></li>
-          <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <li class="active">
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-            </li>
-            <li class="active">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-            </li>
-          <% else %>
-            <li class="active">
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-            </li>
-            <li class="active">
-              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-            </li>
-          <% end %>
-          <li>
-            <%= link_to "Help", pages_help_path, :class => 'navbar-link' %> 
+<head>
+  <title>Vocapp</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+  <script src="jquery-1.12.4.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-faded">
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+      &#9776;
+    </button>
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+      <a class="navbar-brand" href="/">Vocapp Prototype</a>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <span>Logged in as <%= current_user.email %></span>
+          <li class="nav-item">
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %>
           </li>
-          <li>
-            <%= link_to "About", pages_about_path, :class => 'navbar-link' %> 
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
           </li>
-        </ul>
-      </div>
-    </nav>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, :class => 'nav-link'  %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "Help", pages_help_path, :class => 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", pages_about_path, :class => 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
-    <%= yield %>
+  <%= yield %>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/<%= bootstrap_version %>/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
   </body>
 </html>
