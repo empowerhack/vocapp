@@ -18,5 +18,4 @@ module TermsHelper
   def filtered_results(field_id)
     @terms.where(field_id: field_id)
   end
-
 end
