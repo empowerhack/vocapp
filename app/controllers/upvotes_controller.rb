@@ -26,6 +26,7 @@ class UpvotesController < ApplicationController
     upvote = answer.upvotes.find(params[:id])
     if current_user.has_upvoted? answer
       upvote.destroy
+      redirect_to "/terms/#{params[:term_id]}"
     end
   end
 end
