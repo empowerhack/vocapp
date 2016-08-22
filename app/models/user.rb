@@ -2,9 +2,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook]
-  
-  has_many :terms 
+
+  has_many :terms
   has_many :answers
+  has_many :upvotes
+  has_many :downvotes
+  has_many :upvoted_answers, through: :upvotes, source: :answer
+  has_many :downvoted_answers, through: :downvotes, source: :answer
 
  def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -20,4 +24,12 @@ class User < ActiveRecord::Base
      end
    end
  end
+
+  def has_upvoted?(answer)
+    upvoted_answers.include? answer
+  end
+
+  def has_downvoted?(answer)
+    downvoted_answers.include? answer
+  end
 end
