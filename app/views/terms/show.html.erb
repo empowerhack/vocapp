@@ -52,7 +52,6 @@
 
 <% if user_signed_in? %>
   <%= form_for([@term, @term.answers.build]) do |f| %>
-
     <p>
       <%= f.label :definition %><br>
       <%= f.text_area :definition %>
@@ -61,6 +60,19 @@
       <%= f.submit %>
     </p>
   <% end %>
-  <% else %>
-    <a href="../users/sign_in">Sign in</a> to add a definition
+<% else %>
+  <a href="../users/sign_in">Sign in</a> to add a definition
 <% end %>
+
+<div class="card">
+  <div class="card-block">
+    <h2 class="card-header"><%= @term.term_en %></h2>
+      <h5 class="card-title"><%= @fields.find(@term.field_id).name %></h5>
+      <% @term.answers.each do |answer| %>
+        <p class="card-text"><%= answer.definition %></p>
+        <p class="card-text col-sm-1">Upvotes: <%= answer.upvotes.count %></p>
+        <p class="card-text col-sm-1">Downvotes: <%= answer.downvotes.count %></p>
+      <% end %>
+    
+  </div>
+</div>
