@@ -14,10 +14,12 @@ class TermsController < ApplicationController
     if params[:field_id]
       @terms = filtered_results(params[:field_id])
     end
+    @term_titles = @terms.map {|t| t.term_en}.uniq
   end
 
   def new
     @term = Term.new
+    @term_name_from_index = params["term_en"]
     @fields = Field.all
   end
 
