@@ -15,7 +15,7 @@ terms = []
 # Runs through each row and stores field and term+field data in arrays
 CSV.foreach(csv_text, headers: true) do |row|
   fields << row[2].capitalize
-  terms << [row[0].downcase, row[2].capitalize, row[4]]
+  terms << [row[0].downcase, row[2].capitalize, row[5]]
 end
 
 # Creates a user so the DB has a user_id of 1
