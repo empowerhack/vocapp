@@ -1,4 +1,5 @@
 class FlagsController < ApplicationController
+  include FlagsHelper
   before_action :authenticate_user!, :except => [:index, :show]
 
   def show

@@ -68,11 +68,14 @@
   <div class="card-block">
     <h2 class="card-header"><%= @term.term_en %></h2>
       <h5 class="card-title"><%= @fields.find(@term.field_id).name %></h5>
-      <% @term.answers.each do |answer| %>
+      <% @answers.each do |answer| %>
         <p class="card-text"><%= answer.definition %></p>
-        <p class="card-text col-sm-1">Upvotes: <%= answer.upvotes.count %></p>
-        <p class="card-text col-sm-1">Downvotes: <%= answer.downvotes.count %></p>
+        <p class="card-text">Upvotes: <%= answer.upvotes.count %></p>
+        <p class="card-text">Downvotes: <%= answer.downvotes.count %></p>
+
+        <%= form_for([@term, @answers.find(answer.id), answer.flags.build]) do |f| %>
+          <%= f.submit %>
+        <% end %>
       <% end %>
-    
   </div>
 </div>
