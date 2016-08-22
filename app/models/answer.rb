@@ -4,4 +4,5 @@ class Answer < ActiveRecord::Base
 
   has_many :upvotes, dependent: :destroy
   has_many :downvotes, dependent: :destroy
+  has_many :flags, dependent: :destroy
 end
