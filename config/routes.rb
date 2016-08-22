@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :answers do
       resources :upvotes
       resources :downvotes
+      resources :flags
     end
   end
+  get 'pages/help'
+  get 'pages/about'
 end

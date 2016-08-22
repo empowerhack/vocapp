@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816161949) do
+ActiveRecord::Schema.define(version: 20160822154719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160816161949) do
     t.datetime "updated_at", null: false
     t.integer  "term_id"
     t.integer  "user_id"
+    t.boolean  "flagged"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
@@ -44,6 +45,16 @@ ActiveRecord::Schema.define(version: 20160816161949) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "flags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "answer_id"
+  end
+
+  add_index "flags", ["answer_id"], name: "index_flags_on_answer_id", using: :btree
+  add_index "flags", ["user_id"], name: "index_flags_on_user_id", using: :btree
 
   create_table "terms", force: :cascade do |t|
     t.string   "term_en"
@@ -92,6 +103,8 @@ ActiveRecord::Schema.define(version: 20160816161949) do
   add_foreign_key "answers", "users"
   add_foreign_key "downvotes", "answers"
   add_foreign_key "downvotes", "users"
+  add_foreign_key "flags", "answers"
+  add_foreign_key "flags", "users"
   add_foreign_key "terms", "fields"
   add_foreign_key "terms", "users"
   add_foreign_key "upvotes", "answers"
