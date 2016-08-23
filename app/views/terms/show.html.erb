@@ -10,6 +10,8 @@
           <p class="card-text"><%= answer.definition %></p>
           <p class="card-text">Upvotes: <%= answer.upvotes.count %></p>
           <p class="card-text">Downvotes: <%= answer.downvotes.count %></p>
+          <p class="card-text">Score: <%= answer.score %></p>
+
 
           <% if user_signed_in? && current_user.has_upvoted?(answer) %>
             <%= form_for([@term, answer, answer.upvotes.build]) do |f| %>
