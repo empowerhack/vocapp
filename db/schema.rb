@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822154719) do
+ActiveRecord::Schema.define(version: 20160824174139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160822154719) do
   add_index "flags", ["user_id"], name: "index_flags_on_user_id", using: :btree
 
   create_table "terms", force: :cascade do |t|
-    t.string   "term_en"
+    t.string   "term"
     t.string   "context_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
