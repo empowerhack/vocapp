@@ -3,13 +3,13 @@ class TermsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    @searched_term = params[:term]
+    @searched_term = params[:term_en]
     @fields = Field.all
     @answers = Answer.all
     if search_contains_characters(params)
-      @terms =  unfiltered_results(params[:term])
+      @terms =  unfiltered_results(params[:term_en])
     else
-      @terms = Term.all.order(:term)
+      @terms = Term.all.order(:term_en)
     end
     if params[:field_id]
       @terms = filtered_results(params[:field_id])
@@ -19,7 +19,7 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
-    @term_name_from_index = params["term"]
+    @term_name_from_index = params["term_en"]
     @fields = Field.all
   end
 
@@ -28,7 +28,7 @@ class TermsController < ApplicationController
     term = field.terms.new(term_params)
     term.user_id = current_user.id
     if term.save
-      flash[:notice] = "Your term \"#{term[:term]}\" has been submitted."
+      flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
       redirect_to '/'
     else
       flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
