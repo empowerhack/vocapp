@@ -1,7 +1,7 @@
 <a href='/'>Back to Search</a>
 <h2>Search Results</h2>
 <% if @terms.size == 0 %>
-  <h2>No results for '<%=@searched_term%>' <a href="/terms/new">add a term</a></h2>
+  <h2>No results for '<%=@searched_term%>' <a href="/terms/new">Add a new term</a></h2>
 <% else %>
   <% @term_titles.each do |title| %>
     <div class="card">
@@ -16,7 +16,7 @@
           <% end %>
           <p class="card-text col-sm-2"><a href="terms/<%=term.id%>">More</a></p>
         <% end %>
-        <%= link_to "Add new definition", new_term_path(term_en: title) %>
+        <%= link_to "Add a new definition", new_term_path(term_en: title) %>
       </div>
     </div>
   <% end %>
