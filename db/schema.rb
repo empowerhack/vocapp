@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20160822154719) do
     t.datetime "updated_at", null: false
     t.integer  "term_id"
     t.integer  "user_id"
-    t.boolean  "flagged"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree

@@ -1,0 +1,17 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+}
+
+.alt-theme {
+	color: white;
+	a {
+		color: white;
+		&:hover {
+			color: rgba(255,255,255,0.7);
+		}
+	}
+}
