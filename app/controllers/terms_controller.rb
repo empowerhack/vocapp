@@ -31,7 +31,7 @@ class TermsController < ApplicationController
       flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
       redirect_to '/'
     else
-      flash[:notice] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
+      flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
       redirect_to '/terms/new'
     end
   end
