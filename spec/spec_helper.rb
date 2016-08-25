@@ -1,4 +1,5 @@
 require_relative 'helpers/users_feature_helpers.rb'
+require_relative 'helpers/term_feature_helpers.rb'
 
 RSpec.configure do |config|
 
