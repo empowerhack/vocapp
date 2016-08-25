@@ -28,6 +28,6 @@ fields.uniq.each { |f| Field.create!(name: f) }
 # Creates answers for each term
 terms.each.with_index do |t, i|
   field_id = Field.where(name: t[1])[0].id
-  Term.create!(term_en: t[0], user_id: 1, field_id: field_id)
+  Term.create!(term: t[0], user_id: 1, field_id: field_id)
   Answer.create!(definition: t[2], user_id: 1, term_id: i+1)
 end

@@ -1,7 +1,7 @@
 <%= form_for(@term, :url => {:action => 'update'}) do |t| %>
   <div class="form-group">
     <%= t.label 'English Term' %>
-    <%= t.text_field "term_en", readonly: true %>
+    <%= t.text_field "term", readonly: true %>
   </div>
   <div class="form-group">
     <%= t.label 'English Field' %>
