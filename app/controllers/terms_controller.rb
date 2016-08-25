@@ -38,7 +38,7 @@ class TermsController < ApplicationController
   def show
     @term = Term.find(params[:id])
     @fields = Field.all
-    @answers = Answer.where(term_id: @term.id)
+    @answers = Answer.where(term_id: @term.id).order('score desc, created_at')
   end
 
   def edit
