@@ -15,11 +15,9 @@ describe User, type: :model do
 
   describe '#has_upvoted?' do
     it 'should return true if the user upvoted an answer' do
-      field = stub_model(Field, name: "Test Field")
-      term = stub_model(Term, user: user, field: field)
+      term = stub_model(Term, user: user)
       answer = stub_model(Answer, user: user, term: term)
-      upvote = stub_model(Upvote, user: user, answer: answer)
-      
+      user.stub(:upvoted_answers) { [answer] }
       expect(user.has_upvoted?(answer)).to eq true
     end
   end
