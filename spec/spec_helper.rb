@@ -1,3 +1,5 @@
+require_relative 'helpers/users_feature_helpers.rb'
+
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|

@@ -21,4 +21,13 @@ describe User, type: :model do
       expect(user.has_upvoted?(answer)).to eq true
     end
   end
+
+  describe '#has_downvoted?' do
+    it 'should return true if the user downvoted an answer' do
+      term = stub_model(Term, user: user)
+      answer = stub_model(Answer, user: user, term: term)
+      user.stub(:downvoted_answers) { [answer] }
+      expect(user.has_downvoted?(answer)).to eq true
+    end
+  end
 end
