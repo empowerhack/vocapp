@@ -5,7 +5,7 @@ describe TermsController, type: :controller do
 
   describe "GET term" do
     it "gets term by id " do
-      term = FactoryGirl.create(:term)
+      # term = FactoryGirl.create(:term)
       get :show, id: term
       assigns(:term).should eq(term)
     end
