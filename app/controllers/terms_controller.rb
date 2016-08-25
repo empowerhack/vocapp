@@ -19,7 +19,6 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
-    @term_name_from_index = params["term_en"]
     @fields = Field.all
   end
 
