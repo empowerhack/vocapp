@@ -23,14 +23,14 @@ class TermsController < ApplicationController
   end
 
   def create
-    @field = Field.find(term_params[:field_id])
-    @term = @field.terms.new(term_params)
-    @term.user_id = current_user.id
-    if @term.save
-      flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
+    field = Field.find(term_params[:field_id])
+    term = field.terms.new(term_params)
+    term.user_id = current_user.id
+    if term.save
+      flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
       redirect_to '/'
     else
-      flash[:notice] = "Sorry, there was a problem submitting your new term."
+      flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
       redirect_to '/terms/new'
     end
   end
@@ -54,4 +54,5 @@ class TermsController < ApplicationController
   def destroy
     @term = Term.find(params[:id])
   end
+
 end

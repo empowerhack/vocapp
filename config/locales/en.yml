@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      term:
+        term_en: "Term"
