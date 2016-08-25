@@ -1,15 +1,6 @@
 class DownvotesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
-  def show
-    answer = Answer.find(params[:answer_id])
-    downvote = Downvote.find(params[:id])
-    if current_user.has_downvoted? answer
-      downvote.destroy
-      redirect_to "/terms/#{params[:term_id]}"
-    end
-  end
-
   def create
     answer = Answer.find(params[:answer_id])
     if current_user.has_downvoted? answer
