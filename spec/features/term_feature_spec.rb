@@ -15,5 +15,33 @@ feature 'Terms' do
     end
   end
 
+  context 'term exists' do
+    before do
+      Field.create(name: 'Maths', id: 1)
+      Field.create(name: 'Blah', id: 2)
+      add_algorithm_term
+    end
 
+    scenario 'see term results when searching' do
+      visit ('/')
+      fill_in 'Search', with: 'algorithm'
+      click_button 'Search'
+      expect(page).to have_content 'fake context'
+      expect(page).to have_link 'Add a new term with a different academic field'
+    end
+  end
+
+  context 'adding terms' do
+    scenario 'user will fill out a form, then be redirected' do
+      visit ('/')
+      fill_in 'Search', with: 'algorithm'
+      click_button 'Search'
+      click_link 'Add a new term'
+      fill_in 'term_term_en', with: 'algorithm'
+      select 'Blah', from: 'select-field'
+      click_button 'Create Term'
+      expect(page).to have_content 'Your term "algorithm" has been submitted.'
+      expect(current_path).to eq ('/')
+    end
+  end
 end
