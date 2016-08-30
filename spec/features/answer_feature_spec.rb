@@ -24,14 +24,5 @@ feature 'Answers' do
       add_answer
       expect(page).to have_content 'fakeemail@blah.com'
     end
-
-    scenario 'upvoting and downvoting works' do
-      fill_in 'Search', with: 'calculus'
-      select 'Maths', from: 'field_id'
-      click_button 'Search'
-      add_answer
-      click_button 'Downvote'
-      expect(page).to have_content 'Downvotes: 1'
-    end
   end
 end
