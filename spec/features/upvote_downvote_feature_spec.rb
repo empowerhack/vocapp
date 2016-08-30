@@ -4,9 +4,6 @@ feature 'Upvoting and downvoting' do
   before do
     sign_up
     add_calculus_term
-    fill_in 'Search', with: 'calculus'
-    select 'Maths', from: 'field_id'
-    click_button 'Search'
     add_answer
   end
 
