@@ -15,33 +15,33 @@ feature 'Terms' do
     end
   end
 
-  context 'term exists' do
-    before do
-      Field.create(name: 'Maths', id: 1)
-      Field.create(name: 'Blah', id: 2)
-      add_algorithm_term
-    end
-
-    scenario 'see term results when searching' do
+  context 'term doesnt exists' do
+    scenario 'shouldnt find term yet' do
       visit ('/')
-      fill_in 'Search', with: 'algorithm'
+      fill_in 'Search', with: 'calculus'
       click_button 'Search'
-      expect(page).to have_content 'fake context'
-      expect(page).to have_link 'Add a new term with a different academic field'
+      expect(page).to have_content "No results for 'calculus' Add a new term"
     end
   end
 
-  context 'adding terms' do
-    scenario 'user will fill out a form, then be redirected' do
-      visit ('/')
-      fill_in 'Search', with: 'algorithm'
+  context 'term exists' do
+    before do
+      add_calculus_term
+    end
+
+    context 'adding terms' do
+      scenario 'user will fill out a form, then be redirected' do
+        expect(page).to have_content 'Your term "calculus" has been submitted.'
+        expect(current_path).to eq ('/')
+      end
+    end
+
+    scenario 'see term results when searching' do
+      fill_in 'Search', with: 'calculus'
+      select 'Maths', from: 'field_id'
       click_button 'Search'
-      click_link 'Add a new term'
-      fill_in 'term_term_en', with: 'algorithm'
-      select 'Maths', from: 'select-field'
-      click_button 'Create Term'
-      expect(page).to have_content 'Your term "algorithm" has been submitted.'
-      expect(current_path).to eq ('/')
+      expect(page).to have_content 'No answers for this term yet.'
+      expect(page).to have_link 'Add a new term with a different academic field'
     end
   end
 end
