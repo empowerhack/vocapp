@@ -3,13 +3,13 @@
 <%= form_for @term do |f| %>
   <p>
     <%= f.label "Enter your term:" %><br>
-    <%= f.text_field :term_en, placeholder: "Enter term", value: params[:term_en] %>
+    <%= f.text_field :term_en, placeholder: "Enter term", name: "Term En", value: params[:term_en] %>
   </p>
   <p>
     <%= f.label "Choose academic field:" %><br>
-    <%= f.select :field_id, options_from_collection_for_select(@fields, 'id', 'name'), {prompt: true}, {required: true}  %>
+    <%= f.select :field_id, options_from_collection_for_select(@fields, 'id', 'name'), {prompt: true, required: true}, id: "select-field" %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit 'Create Term', id: "Create Term" %>
   </p>
 <% end %>
