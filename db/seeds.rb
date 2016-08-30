@@ -19,7 +19,9 @@ CSV.foreach(csv_text, headers: true) do |row|
 end
 
 # Creates a user so the DB has a user_id of 1
-User.create!(email:"p@p.com", password:"password")
+user = User.create!(email:"p@p.com", password:"password")
+user.id = 1
+user.save!
 
 # Creates each non-duplicate field in DB
 fields.uniq.each { |f| Field.create!(name: f) }
@@ -28,6 +30,7 @@ fields.uniq.each { |f| Field.create!(name: f) }
 # Creates answers for each term
 terms.each.with_index do |t, i|
   field_id = Field.where(name: t[1])[0].id
-  Term.create!(term_en: t[0], user_id: 1, field_id: field_id)
-  Answer.create!(definition: t[2], user_id: 1, term_id: i+1)
+  term = Term.create(term_en: t[0], user_id: 1, field_id: field_id)
+  term_identity = term.id
+  Answer.create(definition: t[2], user_id: 1, term_id: term_identity)
 end
