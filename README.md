@@ -108,6 +108,12 @@ and change the facebook app id to your own in the secrets.yml file:
 facebook_app_id = [app id here!]
 ```
 
+### Run tests:
+1- create a database called vocapp_test on your psql, then:
+```
+$ rspec
+```
+
 #### Steps to see all features
 * To see all terms - leave search box empty and click search
 
