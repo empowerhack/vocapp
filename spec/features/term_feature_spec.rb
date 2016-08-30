@@ -38,7 +38,7 @@ feature 'Terms' do
       click_button 'Search'
       click_link 'Add a new term'
       fill_in 'term_term_en', with: 'algorithm'
-      select 'Blah', from: 'select-field'
+      select 'Maths', from: 'select-field'
       click_button 'Create Term'
       expect(page).to have_content 'Your term "algorithm" has been submitted.'
       expect(current_path).to eq ('/')

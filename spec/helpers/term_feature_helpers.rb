@@ -4,6 +4,8 @@ def add_algorithm_term
   click_button 'Search'
   click_link 'Add a new term'
   fill_in 'term_term_en', with: 'algorithm'
-  select 'Maths', from: 'select-field'
+
+  find('#select-field').find(:xpath, 'option[2]').select_option
+
   click_button 'Create Term'
 end
