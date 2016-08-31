@@ -1,15 +1,6 @@
 class FlagsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
-  def show
-    answer = Answer.find(params[:answer_id])
-    flag = Flag.find(params[:id])
-    if current_user.has_flagged? answer
-      flag.destroy
-      redirect_to "/terms/#{params[:term_id]}"
-    end
-  end
-
   def create
     answer = Answer.find(params[:answer_id])
     if current_user.has_flagged? answer

@@ -1,23 +1,24 @@
-<div class="container-fluid terms">
-  <a href='/'>Back to Search</a>
-  <h2>Search Results</h2>
+<div class="results-page">
+  <a href='/'>&lt; Back to search</a>
   <% if @terms.size == 0 %>
-    <h2>No results for '<%=@searched_term%>' <a href="/terms/new">add a term</a></h2>
+    <h2>No results for '<%=@searched_term%>' <a href="/terms/new">Add a new term</a></h2>
   <% else %>
     <% @term_titles.each do |title| %>
-      <div class="card">
-        <div class="card-block">
-          <h2 class="card-header"><%= title %></h2>
-          <% @terms.where(term_en: title).each do |term| %>
-            <h5 class="card-title"><%= @fields.find(term.field_id).name %></h5>
+      <div class="row result-card">
+        <div class="col-sm-2 result-term"><%= title %></div>
+        <div class="col-sm-10">
+        <% @terms.where(term_en: title).each do |term| %>
+          <div class="row result-line">
+            <div class="col-sm-3 result-field"><span><%= @fields.find(term.field_id).name %></span></div>
             <% if term.answers.length == 0 %>
-              <p class="card-text">No answers for this term yet.</p>
+              <p>No answers for this term yet.</p>
             <% else %>
-              <p class="card-text col-sm-10"><%= term.answers[0].definition %></p>
+              <div class="col-sm-8 result-ar"><%= term.answers[0].definition %></div>
             <% end %>
-            <p class="card-text col-sm-2"><a href="terms/<%=term.id%>">More</a></p>
-          <% end %>
-          <%= link_to "Add new academic field", new_term_path(term_en: title) %>
+            <div class="col-sm-1 result-link"><a href="terms/<%=term.id%>">More</a></div>
+          </div>
+        <% end %>
+        <%= link_to "Add new field", new_term_path(term_en: title), :class => "new-result-term" %>
         </div>
       </div>
     <% end %>

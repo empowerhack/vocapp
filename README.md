@@ -32,7 +32,7 @@ More information in [wiki](https://github.com/empowerhack/vocapp/wiki)
 ### Team Members
 
 Architect & Development Team:
-* UX: Victoria Ogundare 
+* UX: Victoria Ogundare
 * Developers: [Erika Pheby] (https://github.com/eripheebs), [Paul Rees] (https://github.com/paulalexrees), [Kevin McCarthy] (https://github.com/kevinpmcc), [Rhiannon Lolley Neville] (https://github.com/rhiannonruth)
 
 Research & Content
@@ -95,9 +95,23 @@ bin/rake db:reset
 rails s
 ```
 
-7.In your browser go to 
+7.In your browser go to
 ```
 localhost:3000
+```
+8.For Facebook OAuth to work, add your facebook authentication key to an .env file:
+```
+FACEBOOK_APP_SECRET = [secret key here!]
+```
+and change the facebook app id to your own in the secrets.yml file:
+```
+facebook_app_id = [app id here!]
+```
+
+### Run tests:
+1- create a database called vocapp_test on your psql, then:
+```
+$ rspec
 ```
 
 #### Steps to see all features
@@ -109,5 +123,3 @@ localhost:3000
 
 * To add a term - be logged in and search for word of your choosing and click
 add term!
-
-

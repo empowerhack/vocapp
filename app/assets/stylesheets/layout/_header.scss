@@ -8,6 +8,10 @@
 	width: 100vw;
 	padding: 1rem 2rem;
 	@extend .alt-theme;
+	background: $brand-color;
+	z-index: 99;
+	border-radius: 0;
+	font-size: 125%;
 	.navbar-brand {
 		font-weight: bold;
 		color: white;
@@ -23,6 +27,12 @@
 			&.nav-item-alt {
 				border: 1px solid rgba(255,255,255,0.7);
 				border-radius: 3px;
+				&:hover {
+					background: white;
+					a {
+						color: $brand-color;
+					}
+				}
 			}
 			.nav-link {
 				padding: 0.2rem 1rem 0.4rem;

@@ -1,3 +1,37 @@
-.terms {
-	margin-top: 100px;
+.results-page {
+	background: white;
+	padding: 100px 2rem 2rem;
+	color: $text-color;
+	.result-card {
+		border-top: 2px solid $brand-color;
+		margin: 1rem 0rem;
+		padding: 2rem 0 1rem;
+		.result-term {
+			font-size: 175%;
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+		.result-line {
+			margin-bottom: 20px;
+			.result-field span {
+				border-radius: 4px;
+				background: $brand-color;
+				color: white;
+				text-transform: uppercase;
+				display: inline-block;
+				padding: 8px 12px;
+				font-size: 75%;
+			}
+			.result-ar {
+				direction: rtl;
+				height: 100%;
+				padding-top: 5px;
+			}
+			.result-link {
+				padding-top: 5px;
+			}
+		}
+	}
+	.new-result-term {
+	}
 }

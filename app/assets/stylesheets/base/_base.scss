@@ -13,6 +13,10 @@ html {
 a {
   color: $brand-color;
   text-decoration: none;
+  &:hover {
+  	color: $text-color;
+  	text-decoration: none;
+  }
 }
 
 body, html {
@@ -20,7 +24,7 @@ body, html {
 	margin: 0;
 	width: 100vw;
 	height: 100%;
-	background: #36bb78;
+	background: $brand-color;
 	background: -moz-linear-gradient(-45deg,  #36bb78 0%, #70c143 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg,  #36bb78 0%,#70c143 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(135deg,  #36bb78 0%,#70c143 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */

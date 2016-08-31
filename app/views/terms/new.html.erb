@@ -3,7 +3,7 @@
 <%= form_for @term do |f| %>
   <p>
     <%= f.label "Enter your term:" %><br>
-    <%= f.text_field :term_en, placeholder: "Enter term", value: @term_name_from_index %>
+    <%= f.text_field :term_en, placeholder: "Enter term", value: params[:term_en] %>
   </p>
   <p>
     <%= f.label "Choose academic field:" %><br>

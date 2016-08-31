@@ -19,19 +19,18 @@ class TermsController < ApplicationController
 
   def new
     @term = Term.new
-    @term_name_from_index = params["term_en"]
     @fields = Field.all
   end
 
   def create
-    @field = Field.find(term_params[:field_id])
-    @term = @field.terms.new(term_params)
-    @term.user_id = current_user.id
-    if @term.save
-      flash[:notice] = "Your term \"#{@term[:term_en]}\" has been submitted."
+    field = Field.find(term_params[:field_id])
+    term = field.terms.new(term_params)
+    term.user_id = current_user.id
+    if term.save
+      flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
       redirect_to '/'
     else
-      flash[:notice] = "Sorry, there was a problem submitting your new term."
+      flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
       redirect_to '/terms/new'
     end
   end
@@ -39,7 +38,7 @@ class TermsController < ApplicationController
   def show
     @term = Term.find(params[:id])
     @fields = Field.all
-    @answers = Answer.where(term_id: @term.id)
+    @answers = Answer.where(term_id: @term.id).order('score desc, created_at')
   end
 
   def edit
@@ -55,4 +54,5 @@ class TermsController < ApplicationController
   def destroy
     @term = Term.find(params[:id])
   end
+
 end
