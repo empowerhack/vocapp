@@ -56,7 +56,7 @@
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
           <%= f.label "Add an answer" %><br>
-          <%= f.text_area :definition %>
+          <%= f.text_area :definition, required: true %>
         </p>
         <p>
           <%= f.submit %>
