@@ -11,5 +11,4 @@ class Answer < ActiveRecord::Base
     def update_score
       update_attributes(score: (upvotes.count - downvotes.count))
     end
-
 end
