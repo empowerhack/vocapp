@@ -5,8 +5,8 @@
   <% else %>
     <% @term_titles.each do |title| %>
       <div class="row result-card">
-        <div class="col-sm-2 result-term"><%= title %></div>
-        <div class="col-sm-10">
+        <div class="col-md-2 col-sm-12 result-term"><%= title %></div>
+        <div class="col-md-10 col-sm-12">
         <% @terms.where(term_en: title).each do |term| %>
           <div class="row result-line">
             <div class="col-sm-3 result-field"><span><%= @fields.find(term.field_id).name %></span></div>
