@@ -7,7 +7,11 @@
       <div class="card-block">
         <h2 class="card-header">Flagged Answer: <%= find_answer(flag).definition %></h2>
           <p class="card-text col-sm-10">For the term: <%= find_term(find_answer(flag)).term_en %></p>
-          <p class="card-text col-sm-2"></p>
+          <p class="card-text col-sm-2">
+            <%= form_for([find_term(find_answer(flag)), find_answer(flag), flag], method: 'delete') do |f| %>
+              <%= f.submit value:"Unflag" %>
+            <% end %>
+          </p>
       </div>
     </div>
   <% end %>
