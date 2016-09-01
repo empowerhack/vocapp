@@ -20,9 +20,9 @@
         <%= form_tag terms_path, method: 'get' do %>
           <div>
             <% if params[:term_en] %>
-            <%= label_tag :term_en, "Translating" %>
+              <%= label_tag :term_en, "Translating" %>
             <% else %>
-            <%= label_tag :term_en, "Translate" %>
+              <%= label_tag :term_en, "Translate" %>
             <% end %>
             <%= text_field_tag(:term_en, params[:term_en], placeholder: " anything") %>
           </div>
