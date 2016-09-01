@@ -16,23 +16,18 @@
     </button>
     <a class="navbar-brand" href="/">VocApp</a>
     <% unless current_page?('/') %>
-      <div class="container-fluid text-center alt-theme hero-form-wrap">
-        <form role="form" action="/terms" method="get" id="term_search" class="form-inline">
-          <div class="form-group">
-            <label for="term-search">Translating</label>
-            <input type="text" name="term_en" placeholder=" anything" id="term-search" value="<%= params[:term_en] %>"/>
+      <div>
+        <%= form_tag terms_path, method: 'get' do %>
+          <div>
+            <%= label_tag :term_en, "Translate" %>
+            <%= text_field_tag(:term_en, params[:term_en], placeholder: " anything") %>
           </div>
-          <div class="form-group">
-            <label for="field-search">in</label>
-            <select class="form-control input-sm" name ="field_id" form="term_search" id="field-search">
-                <option value="" disabled selected>all fields</option>
-                <% @fields.each do |field| %>
-                  <option value="<%= field.id %>"><%= field.name %></option>
-                <% end %>
-            </select>
+          <div>
+            <%= label_tag :field_id, "in" %>
+            <%= select_tag :field_id, content_tag(:option,'all fields',:value=>"") + options_from_collection_for_select(@fields, :id, :name, params[:field_id]) %>
           </div>
-          <input type="submit" value="Search">
-        </form>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
       </div>
     <% end %>
     <div class="collapse navbar-toggleable-xs pull-sm-right" id="exCollapsingNavbar2">

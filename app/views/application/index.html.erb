@@ -1,4 +1,17 @@
 <div class="container-fluid text-center alt-theme hero-form-wrap">
+
+  <!-- <%= form_tag terms_path, method: 'get', class: "form-group", id: "term_search"  do %>
+    <div class="form-group">
+      <%= label_tag :term_en, "Translate" %>
+      <%= text_field_tag(:term_en, "", placeholder: " anything", autofocus: true, id: "term-search") %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :field_id, "in" %>
+      <%= collection_select :field, :id, @fields, :id, :name, {include_blank: 'all fields'}, class: "form-control input-sm", id: "field-search", name: "field_id" %>
+    </div>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %> -->
+
   <form role="form" action="/terms" method="get" id="term_search" class="form-inline">
     <div class="form-group">
       <label for="term-search">Translate</label>
@@ -15,4 +28,5 @@
     </div>
     <input type="submit" value="Search">
   </form>
+
 </div>

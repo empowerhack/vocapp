@@ -11,7 +11,7 @@ class TermsController < ApplicationController
     else
       @terms = Term.all.order(:term_en)
     end
-    if params[:field_id]
+    if params[:field_id] && params[:field_id] != ""
       @terms = filtered_results(params[:field_id])
     end
     @term_titles = get_unique(@terms)
