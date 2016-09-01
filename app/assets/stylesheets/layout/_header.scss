@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header/navbar of the site/application.
+// -----------------------------------------------------------------------------
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	padding: 1rem 2rem;
+	@extend .alt-theme;
+	background: $brand-color;
+	z-index: 99;
+	border-radius: 0;
+	font-size: 125%;
+	.navbar-brand {
+		font-weight: bold;
+		color: white;
+		font-size: 1.2em;
+	}
+	.navbar-nav {
+		padding-top: 0.5rem;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		.nav-item {
+			padding-top: 0.2rem;
+			&.nav-item-alt {
+				border: 1px solid rgba(255,255,255,0.7);
+				border-radius: 3px;
+				&:hover {
+					background: white;
+					a {
+						color: $brand-color;
+					}
+				}
+			}
+			.nav-link {
+				padding: 0.2rem 1rem 0.4rem;
+			}
+		}
+	}
+}
