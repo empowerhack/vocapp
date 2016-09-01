@@ -15,6 +15,26 @@
       &#9776;
     </button>
     <a class="navbar-brand" href="/">VocApp</a>
+    <% unless current_page?('/') %>
+      <div class="container-fluid text-center alt-theme hero-form-wrap">
+        <form role="form" action="/terms" method="get" id="term_search" class="form-inline">
+          <div class="form-group">
+            <label for="term-search">Translate</label>
+            <input type="text" name="term_en" placeholder=" anything" id="term-search" autofocus/>
+          </div>
+          <div class="form-group">
+            <label for="field-search">in</label>
+            <select class="form-control input-sm" name ="field_id" form="term_search" id="field-search">
+                <option value="" disabled selected>all fields</option>
+                <% @fields.each do |field| %>
+                  <option value="<%= field.id %>"><%= field.name %></option>
+                <% end %>
+            </select>
+          </div>
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    <% end %>
     <div class="collapse navbar-toggleable-xs pull-sm-right" id="exCollapsingNavbar2">
       <ul class="nav navbar-nav">
         <li class="nav-item">
