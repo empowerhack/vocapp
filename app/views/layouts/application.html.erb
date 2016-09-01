@@ -24,7 +24,7 @@
           </div>
           <div>
             <%= label_tag :field_id, "in" %>
-            <%= select_tag :field_id, content_tag(:option,'all fields',:value=>"") + options_from_collection_for_select(@fields, :id, :name, params[:field_id]) %>
+            <%= select_tag :field_id, content_tag(:option,'all fields',:value=>"") + options_from_collection_for_select(Field.all, :id, :name, params[:field_id]) %>
           </div>
           <%= submit_tag "Search", :name => nil %>
         <% end %>
