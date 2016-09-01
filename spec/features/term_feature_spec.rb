@@ -36,12 +36,16 @@ feature 'Terms' do
       end
     end
 
-    scenario 'see term results when searching' do
-      fill_in 'Search', with: 'calculus'
-      select 'Maths', from: 'field_id'
-      click_button 'Search'
-      expect(page).to have_content 'No answers for this term yet.'
-      expect(page).to have_link 'Add a new term with a different academic field'
+    context 'displaying terms' do
+
+      scenario 'see term results when searching' do
+        fill_in 'Search', with: 'calculus'
+        select 'Maths', from: 'field_id'
+        click_button 'Search'
+        expect(page).to have_content 'No answers for this term yet.'
+        expect(page).to have_link 'Add a new term with a different academic field'
+      end
+
     end
   end
 end

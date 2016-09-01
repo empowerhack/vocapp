@@ -12,7 +12,7 @@
           <% if term.answers.length == 0 %>
             <p class="card-text">No answers for this term yet.</p>
           <% else %>
-            <p class="card-text col-sm-10"><%= term.answers[0].definition %></p>
+            <p class="card-text col-sm-10"><%= term.answers.order("score DESC").first.definition %></p>
           <% end %>
           <p class="card-text col-sm-2"><a href="terms/<%=term.id%>">More</a></p>
         <% end %>
