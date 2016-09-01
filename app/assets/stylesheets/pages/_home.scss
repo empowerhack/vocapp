@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.hero-form-wrap {
+	font-size: 125%;
+	@include vertical-align();
+	form {
+		* {
+			font-family: $text-font-stack;
+			letter-spacing: 0.5px;
+		}
+		input[type="text"] {
+			width: 180px;
+			margin: 0 5px;
+			line-height: 1.8em;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			box-shadow: none;
+			color: white;
+			&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+				color: white;
+			}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color: white;
+			   opacity: 1;
+			}
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color: white;
+			   opacity: 1;
+			}
+			&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			   color: white;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		select.form-control:not([size]):not([multiple]){
+			margin: 0 5px;
+			height: auto;
+			font-size: 1em;
+			color: white;
+			padding: 6px;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			border-radius: 0;
+			-webkit-appearance: none;
+			cursor: pointer;
+			width: 180px;
+		}
+		input[type="submit"] {
+			background: white;
+			color: $brand-color;
+			-webkit-appearance: none;
+			border: 0;
+			padding: 0.6rem;
+			&:hover {
+				background: rgba(255,255,255,0.9);
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+}
