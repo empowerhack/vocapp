@@ -14,7 +14,7 @@ feature 'Answers' do
       visit ('/')
       fill_in 'Search', with: 'calculus'
       click_button 'Search'
-      expect(page).to have_content "No results for 'calculus' Add a new term"
+      expect(page).to have_content "No answers for this term yet."
     end
 
     scenario 'user adds an answer' do

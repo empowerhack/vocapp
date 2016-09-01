@@ -15,6 +15,19 @@
     </button>
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
       <a class="navbar-brand" href="/">Vocapp Prototype</a>
+      <% unless current_page?('/') %>
+        <%= form_tag terms_path, method: 'get' do %>
+          <% if params[:term_en] %>
+            <%= label_tag :term_en, "Translating" %>
+          <% else %>
+            <%= label_tag :term_en, "Translate" %>
+          <% end %>
+          <%= text_field_tag(:term_en, params[:term_en], placeholder: " anything") %>
+          <%= label_tag :field_id, "in" %>
+          <%= select_tag :field_id, content_tag(:option,'all fields',:value=>"") + options_from_collection_for_select(Field.all, :id, :name, params[:field_id]) %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      <% end %>
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <span>Logged in as <%= current_user.email %></span>

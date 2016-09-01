@@ -8,9 +8,9 @@ feature 'Terms' do
   context 'No term added yet' do
     scenario 'should display a prompt to add a new term'do
       visit ('/')
-      fill_in 'Search', with: 'algorithm'
+      fill_in 'Search', with: 'calculus'
       click_button 'Search'
-      expect(page).to have_content "No results for 'algorithm'"
+      expect(page).to have_content "No results for 'calculus'"
       expect(page).to have_link 'Add a new term'
     end
   end
