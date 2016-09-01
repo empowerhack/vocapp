@@ -21,11 +21,5 @@ feature 'Answers' do
       add_answer
       expect(page).to have_content 'fakeemail@blah.com'
     end
-
-    scenario 'flagging' do
-      add_answer
-      click_button 'Flag'
-      expect(page).to have_button 'Unflag'
-    end
   end
 end
