@@ -20,4 +20,8 @@ class FlagsController < ApplicationController
       redirect_to "/terms/#{params[:term_id]}"
     end
   end
+
+  def index
+    @flags = Flag.all
+  end
 end
