@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :flags
     end
   end
+  get '/flags', to: 'flags#index'
   get 'pages/help'
   get 'pages/about'
 end
