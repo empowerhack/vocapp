@@ -1,7 +1,10 @@
 <div class="results-page">
   <a href='/'>&lt; Back to search</a>
   <% if @terms.size == 0 %>
-    <h2>No results for '<%=@searched_term%>' <a href="/terms/new">Add a new term</a></h2>
+    <div class="isolated-msg">
+      No results for '<%=@searched_term%>'.<br />
+      <a href="/terms/new">Add a new term</a>
+    </div>
   <% else %>
     <% @term_titles.each do |title| %>
       <div class="row result-card">
