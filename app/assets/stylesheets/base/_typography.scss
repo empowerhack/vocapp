@@ -15,3 +15,6 @@ body {
 		}
 	}
 }
+button, input, optgroup, select, textarea {
+    font-family: $text-font-stack;
+}

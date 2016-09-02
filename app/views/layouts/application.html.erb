@@ -10,13 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar">
+  <nav class="navbar" id="homepage-<%=on_hompage?%>">
     <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
       &#9776;
     </button>
     <a class="navbar-brand" href="/">VocApp</a>
-    <div class="collapse navbar-toggleable-xs pull-sm-right" id="exCollapsingNavbar2">
-      <% unless current_page?('/') %>
+    <% unless current_page?('/') %>
+      <div class="navbar-search collapse navbar-toggleable-md">
         <%= form_tag terms_path, method: 'get' do %>
           <% if params[:term_en] %>
             <%= label_tag :term_en, "Translating" %>
@@ -26,9 +26,11 @@
           <%= text_field_tag(:term_en, params[:term_en], placeholder: " anything") %>
           <%= label_tag :field_id, "in" %>
           <%= select_tag :field_id, content_tag(:option,'all fields',:value=>"") + options_from_collection_for_select(Field.all, :id, :name, params[:field_id]) %>
-          <%= submit_tag "Search", :name => nil %>
+          <%= submit_tag "", :name => nil %>
         <% end %>
-      <% end %>
+      </div>
+    <% end %>
+    <div class="collapse navbar-toggleable-xs pull-sm-right" id="exCollapsingNavbar2">
       <ul class="nav navbar-nav">
         <li class="nav-item">
           <%= link_to "About", pages_about_path, :class => 'nav-link' %>
