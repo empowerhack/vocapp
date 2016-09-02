@@ -45,7 +45,12 @@ feature 'Answers' do
     end
 
     scenario 'top scoring answers are displayed first on term#show' do
-      
+      visit ('/')
+      fill_in 'Search', with: 'calculus'
+      select 'Maths', from: 'field_id'
+      click_button 'Search'
+      click_link 'More'
+      expect(page.all('.list-group-item').first).to have_content 'second fake definition'
     end
 
   end
