@@ -14,7 +14,7 @@
           <div class="row result-line">
             <div class="col-sm-3 result-field"><span><%= @fields.find(term.field_id).name %></span></div>
             <% if term.answers.length == 0 %>
-              <p>No answers for this term yet.</p>
+              <div class="col-sm-8 text-right">No answers for this term yet.</div>
             <% else %>
               <div class="col-sm-8 result-ar"><%= term.answers[0].definition %></div>
             <% end %>

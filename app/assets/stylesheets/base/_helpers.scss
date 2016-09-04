@@ -2,6 +2,15 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
+*:focus {
+  outline: 0;
+}
+
+* {
+  transition: 0.3s ease-out;
+  -webkit-transition: 0.3s ease-out;
+}
+
 .clearfix::after {
   clear: both;
   content: '';
@@ -39,6 +48,10 @@
   width: 1px;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-center {
   text-align: center;
 }
@@ -46,8 +59,4 @@
 .centered {
   display: table;
   margin: 0 auto;
-}
-
-*:focus {
-  outline: 0;
 }
