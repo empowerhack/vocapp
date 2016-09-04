@@ -59,7 +59,7 @@
     <% if user_signed_in? %>
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
-          <%= f.label "Add an answer" %><br>
+          <%= f.label "Add a new answer" %><br>
           <%= f.text_area :definition, required: true %>
         </p>
         <p>

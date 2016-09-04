@@ -18,7 +18,7 @@
  }
 
  .clear-top {
-  padding-top: 100px;
+  padding-top: 130px;
  }
 
 .hide-text {
@@ -46,4 +46,8 @@
 .centered {
   display: table;
   margin: 0 auto;
+}
+
+*:focus {
+  outline: 0;
 }
