@@ -78,7 +78,7 @@
 					margin-bottom: 1rem;
 					&:focus { outline: 0; }
 					&:hover {
-						border-color: transparent transparent $brand-color transparent;
+						border-color: transparent transparent $dark-grey transparent;
 					}
 					&.upvoted {
 						border-color: transparent transparent $brand-color transparent;
@@ -97,7 +97,7 @@
 					margin-bottom: .75rem;
 					&:focus { outline: 0; }
 					&:hover {
-						border-color: $danger-color transparent transparent transparent;
+						border-color: $dark-grey transparent transparent transparent;
 					}
 					&.upvoted {
 						border-color: $danger-color transparent transparent transparent;
@@ -164,5 +164,8 @@
 				outline: 0;
 			}
 		}
+	}
+	.no-term {
+		padding: 5px 1rem;
 	}
 }

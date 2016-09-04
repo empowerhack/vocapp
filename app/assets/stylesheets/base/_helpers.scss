@@ -61,10 +61,6 @@
   margin: 0 auto;
 }
 
-.alert {
-  animation: fade-out 1s 2s 1 normal forwards;
-}
-
 @keyframes fade-out {
   0% {
     opacity: 1
