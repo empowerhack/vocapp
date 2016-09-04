@@ -9,7 +9,7 @@
 	padding: 0.5rem 2rem 0.8rem;
 	@extend .alt-theme;
 	background: $brand-color;
-	z-index: 909;
+	z-index: 99;
 	border-radius: 0;
 	font-size: 125%;
 	.navbar-brand {
@@ -47,26 +47,36 @@
 @media only screen and (max-width : 543px) {
     #navbar {
 		width: 100%;
-    	padding: 1rem 0 2rem;
-    	border-radius: 3px;
+    	padding: 0;
     	margin: 0;
     	margin-top: 50px;
-    	background: white;
     	li a {
     		text-align: center;
     		padding: 0;
     		margin: 0;
     		font-size: 125%;
     		line-height: 2;
-    		color: $brand-color;
     	}
     	.nav-item-alt {
     		border: 0;
     		&:hover {
     			background: transparent;
-    			a {color: $brand-color;}
+    			a {color: rgba(255,255,255,0.7);}
     		}
     	}
+	}
+	#homepage-true {
+		#navbar {
+	    	padding: 1rem 0 2rem;
+	    	border-radius: 3px;
+	    	background: white;
+	    	li a {
+	    		color: $brand-color;
+	    	}
+	    	.nav-item-alt :hover a {
+	    		color: $brand-color;
+	    	}
+		}
 	}
 }
 
