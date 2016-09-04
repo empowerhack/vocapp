@@ -77,3 +77,31 @@
 		}
 	}
 }
+
+@media only screen and (max-width : 700px) {
+	.hero-form-wrap form {
+		.form-group {
+			float: none;
+			clear: both; 
+			width: 100%;
+			margin: 0 0 1rem;
+			text-align: center;
+			label {
+				display: block;
+				float: none;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 550px) {
+	.hero-form-wrap form {
+		padding: 0 1.5rem 0 1rem;
+		.form-group input {
+			width: 100%
+		}
+		select {
+			width: 100% !important;
+		}
+	}
+}
