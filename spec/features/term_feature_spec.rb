@@ -32,7 +32,7 @@ feature 'Terms' do
     context 'adding terms' do
       scenario 'user will fill out a form, then be redirected' do
         expect(page).to have_content 'Your term "calculus" has been submitted.'
-        expect(current_path).to eq ('/')
+        expect(current_path).to eq ('/terms')
       end
     end
 
@@ -41,7 +41,7 @@ feature 'Terms' do
       select 'Maths', from: 'field_id'
       click_button 'Search'
       expect(page).to have_content 'No answers for this term yet.'
-      expect(page).to have_link 'Add a new term with a different academic field'
+      expect(page).to have_link 'Add new field'
     end
   end
 end
