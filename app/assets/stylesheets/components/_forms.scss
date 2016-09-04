@@ -1,4 +1,4 @@
-.li-form, .su-form, .u-form {
+.li-form, .su-form, .u-form, .nf-form {
 	h2 {
 		margin: 0 0 2rem;
 		color: $brand-color;
@@ -19,6 +19,20 @@
 			&:focus {
 				outline: 0;
 			}
+		}
+		select {
+			width: 100%;
+			-webkit-appearance: none;
+			height: auto;
+			font-size: 125%;
+			line-height: 2rem;
+			color: $text-color;
+			padding: 0;
+			background: transparent;
+			border: none;
+			border-bottom: 3px solid $brand-color;
+			border-radius: 0;
+			cursor: pointer;
 		}
 	}
 	input[type="submit"] {
