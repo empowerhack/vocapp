@@ -1,0 +1,44 @@
+.li-form, .su-form {
+	h2 {
+		margin: 1rem 0;
+	}
+	.field {
+		position: relative;
+		input[type="text"], input[type="password"], input[type="email"]	{
+			width: 100%;
+			background: transparent;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: 3px solid $brand-color;
+			line-height: 2rem;
+			font-size: 125%;
+			color: $text-color;
+			margin-bottom: 1rem;
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+	input[type="submit"] {
+		background: $brand-color;
+		color: white;
+		-webkit-appearance: none;
+		border: none;
+		padding: 0.6rem 1.5rem;
+		font-size: 125%;
+		letter-spacing: 0.5px;
+		float: right;
+		margin-top: 0.5rem;
+		&:hover {
+			background: $mid-grey;
+		}
+		&:focus {
+			outline: 0;
+		}
+	}
+	a {
+		display: inline-block;
+		margin-top: 0.5rem;
+	}
+}

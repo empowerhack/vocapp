@@ -39,6 +39,32 @@
 			}
 		}
 	}
+	.navbar-toggler {
+		color: white;
+	}
+}
+
+@media only screen and (max-width : 543px) {
+    #navbar {
+		width: 100%;
+    	padding: 0;
+    	margin: 0;
+    	margin-top: 50px;
+    	li a {
+    		text-align: center;
+    		padding: 0;
+    		margin: 0;
+    		font-size: 125%;
+    		line-height: 2;
+    	}
+    	.nav-item-alt {
+    		border: 0;
+    		&:hover {
+    			background: transparent;
+    			a {color: rgba(255,255,255,0.7);}
+    		}
+    	}
+	}
 }
 
 #homepage-true {
@@ -122,4 +148,11 @@
 			}
 		}
 	}
+}
+
+.alert {
+	position: absolute;
+	top: 60px;
+	width: 100vw;
+	text-align: center;
 }
