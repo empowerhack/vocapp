@@ -7,9 +7,16 @@
 }
 
 .hero-form-wrap {
+	width: 100vw;
+	height: 100vh;
+	background: $brand-color;
+	background: -moz-linear-gradient(-45deg,  #36bb78 0%, #70c143 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  #36bb78 0%,#70c143 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  #36bb78 0%,#70c143 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36bb78', endColorstr='#70c143',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 	font-size: 125%;
-	@include vertical-align();
 	form {
+		@include vertical-align();
 		* {
 			font-family: $text-font-stack;
 			letter-spacing: 0.5px;

@@ -55,7 +55,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="card-block">
+  <div class="term-create-block">
     <% if user_signed_in? %>
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
