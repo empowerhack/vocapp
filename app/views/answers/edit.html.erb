@@ -1,0 +1,11 @@
+<br>
+<br>
+<br>
+<br>
+<%= form_for([@term, @answer], :url => {:action => 'update'}) do |t| %>
+  <div class="form-group">
+    <%= t.label 'Edit definition' %>
+    <%= t.text_field "definition" %>
+    <%= t.submit value: "Save changes" %>
+  </div>
+<% end %>
