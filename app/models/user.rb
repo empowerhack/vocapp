@@ -27,15 +27,16 @@ class User < ActiveRecord::Base
    end
  end
 
-  def has_upvoted?(answer)
-    upvoted_answers.include? answer
-  end
+ def has_upvoted?(answer)
+   upvoted_answers.include? answer
+ end
 
-  def has_downvoted?(answer)
-    downvoted_answers.include? answer
-  end
+ def has_downvoted?(answer)
+   downvoted_answers.include? answer
+ end
 
-  def has_flagged?(answer)
-    flagged_answers.include? answer
-  end
+ def has_flagged?(answer)
+   flagged_answers.include? answer
+ end
+
 end
