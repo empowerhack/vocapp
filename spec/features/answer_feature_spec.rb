@@ -38,7 +38,7 @@ feature 'Answers' do
 
     scenario 'see top scoring answer for terms with multiple answers' do
       visit ('/')
-      fill_in 'Search', with: 'calculus'
+      fill_in 'term-search', with: 'calculus'
       select 'Maths', from: 'field_id'
       click_button 'Search'
       expect(page).to have_content 'second fake definition'
@@ -46,7 +46,7 @@ feature 'Answers' do
 
     scenario 'top scoring answers are displayed first on term#show' do
       visit ('/')
-      fill_in 'Search', with: 'calculus'
+      fill_in 'term-search', with: 'calculus'
       select 'Maths', from: 'field_id'
       click_button 'Search'
       click_link 'More'
