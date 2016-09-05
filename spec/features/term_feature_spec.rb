@@ -8,7 +8,7 @@ feature 'Terms' do
   context 'No term added yet' do
     scenario 'should display a prompt to add a new term'do
       visit ('/')
-      fill_in 'Search', with: 'calculus'
+      fill_in 'term-search', with: 'calculus'
       click_button 'Search'
       expect(page).to have_content "No results for 'calculus'"
       expect(page).to have_link 'Add a new term'
@@ -18,9 +18,9 @@ feature 'Terms' do
   context 'term doesnt exists' do
     scenario 'shouldnt find term yet' do
       visit ('/')
-      fill_in 'Search', with: 'calculus'
+      fill_in 'term-search', with: 'calculus'
       click_button 'Search'
-      expect(page).to have_content "No results for 'calculus' Add a new term"
+      expect(page).to have_content "No results for 'calculus'. Add a new term"
     end
   end
 
@@ -37,7 +37,8 @@ feature 'Terms' do
     end
 
     scenario 'see term results when searching' do
-      fill_in 'Search', with: 'calculus'
+      visit ('/')
+      fill_in 'term-search', with: 'calculus'
       select 'Maths', from: 'field_id'
       click_button 'Search'
       expect(page).to have_content 'No answers for this term yet.'
