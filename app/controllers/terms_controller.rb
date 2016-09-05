@@ -28,7 +28,7 @@ class TermsController < ApplicationController
     term.user_id = current_user.id
     if term.save
       flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
-      redirect_to '/'
+      redirect_to '/terms'
     else
       flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
       redirect_to '/terms/new'

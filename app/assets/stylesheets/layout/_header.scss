@@ -1,0 +1,171 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header/navbar of the site/application.
+// -----------------------------------------------------------------------------
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	padding: 0.5rem 2rem 0.8rem;
+	@extend .alt-theme;
+	background: $brand-color;
+	z-index: 99;
+	border-radius: 0;
+	font-size: 125%;
+	.navbar-brand {
+		font-weight: bold;
+		color: white;
+		font-size: 1em;
+	}
+	.navbar-nav {
+		padding-top: 0.5rem;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		.nav-item {
+			padding-top: 0.2rem;
+			&.nav-item-alt {
+				border: 1px solid rgba(255,255,255,0.7);
+				border-radius: 3px;
+				&:hover {
+					background: white;
+					a {
+						color: $brand-color;
+					}
+				}
+			}
+			.nav-link {
+				padding: 0.2rem 1rem 0.4rem;
+			}
+		}
+	}
+	.navbar-toggler {
+		color: white;
+	}
+}
+
+@media only screen and (max-width : 543px) {
+    #navbar {
+		width: 100%;
+    	padding: 0;
+    	margin: 0;
+    	margin-top: 50px;
+    	li a {
+    		text-align: center;
+    		padding: 0;
+    		margin: 0;
+    		font-size: 125%;
+    		line-height: 2;
+    	}
+    	.nav-item-alt {
+    		border: 0;
+    		&:hover {
+    			background: transparent;
+    			a {color: rgba(255,255,255,0.7);}
+    		}
+    	}
+	}
+	#homepage-true {
+		#navbar {
+	    	padding: 1rem 0 2rem;
+	    	border-radius: 3px;
+	    	background: white;
+	    	li a {
+	    		color: $brand-color;
+	    	}
+	    	.nav-item-alt :hover a {
+	    		color: $brand-color;
+	    	}
+		}
+	}
+}
+
+#homepage-true {
+	padding-top: 1rem;
+	.navbar-brand {
+		font-weight: bold;
+		color: white;
+		font-size: 1.2em;
+	}
+}
+
+#homepage-false {
+	*:focus {
+		outline: 0;
+	}
+	.navbar-brand {
+		margin-top: 0.5rem;
+		margin-right: 2rem;
+	}
+	.navbar-search {
+		float: left;
+		font-size: 0.8em;
+		letter-spacing: 0.5px;
+		margin-top: 8px;
+		margin-bottom: 0;
+		input[type="text"] {
+			width: 180px;
+			margin: 0 5px;
+			line-height: 1.8em;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			box-shadow: none;
+			color: white;
+			&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+				color: white;
+			}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color: white;
+			   opacity: 1;
+			}
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color: white;
+			   opacity: 1;
+			}
+			&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			   color: white;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		select:not([size]):not([multiple]){
+			margin: 0 5px;
+			height: auto;
+			font-size: 1em;
+			color: white;
+			padding: 6px;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			border-radius: 0;
+			-webkit-appearance: none;
+			cursor: pointer;
+			width: 180px;
+		}
+		input[type="submit"] {
+			background: transparent;
+			-webkit-appearance: none;
+			width: 0;
+			height: 0;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			border-style: solid;
+			border-width: 12px 0 12px 12px;
+			vertical-align: super;
+			border-color: transparent transparent transparent white;
+			&:hover {
+				border-color: transparent transparent transparent rgba(255,255,255,0.8);
+			}
+		}
+	}
+}
+
+.alert {
+	position: absolute;
+	top: 60px;
+	width: 100vw;
+	text-align: center;
+}

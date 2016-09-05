@@ -12,7 +12,7 @@ feature 'Answers' do
 
     scenario 'should have no answer' do
       visit ('/')
-      fill_in 'Search', with: 'calculus'
+      fill_in 'term-search', with: 'calculus'
       click_button 'Search'
       expect(page).to have_content "No answers for this term yet."
     end

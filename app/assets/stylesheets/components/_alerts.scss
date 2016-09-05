@@ -1,0 +1,11 @@
+.alert {
+  animation: fade-out 1s 2s 1 normal forwards;
+  &.alert-success {
+  	background: transparent;
+  	color: $brand-color;
+  	border: 0;
+  }
+}
+#homepage-true + .alert-success {
+	color: white;
+}
