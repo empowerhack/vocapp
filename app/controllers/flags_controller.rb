@@ -15,8 +15,6 @@ class FlagsController < ApplicationController
   def destroy
     answer = Answer.find(params[:answer_id])
     flag = Flag.find(params[:id])
-    p current_user.admin?
-    p current_user.has_flagged? answer
     if current_user.has_flagged? answer or current_user.admin?
       flag.destroy
     end
