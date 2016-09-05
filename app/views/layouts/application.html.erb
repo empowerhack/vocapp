@@ -32,6 +32,11 @@
     <% end %>
     <div class="collapse navbar-toggleable-xs pull-sm-right" id="navbar">
       <ul class="nav navbar-nav">
+        <% if user_signed_in? && current_user.admin?%>
+          <li class="nav-item">
+            <%= link_to "Flags", flags_path, :class => 'nav-link' %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "About", pages_about_path, :class => 'nav-link' %>
         </li>

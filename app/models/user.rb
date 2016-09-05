@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
    end
  end
 
+ def created_answer?(answer)
+   answers.include? answer
+ end
+
  def has_upvoted?(answer)
    upvoted_answers.include? answer
  end
