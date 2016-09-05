@@ -16,7 +16,7 @@
             <% if term.answers.length == 0 %>
               <div class="col-sm-8 text-right no-term">No answers for this term yet.</div>
             <% else %>
-              <div class="col-sm-8 result-ar"><%= term.answers[0].definition %></div>
+              <div class="col-sm-8 result-ar"><%= term.answers.order("score DESC").first.definition %></div>
             <% end %>
             <div class="col-sm-1 result-link"><a href="terms/<%=term.id%>">More</a></div>
           </div>
