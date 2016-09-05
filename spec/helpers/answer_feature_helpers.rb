@@ -1,5 +1,6 @@
 def add_answer
-  fill_in 'Search', with: 'calculus'
+  visit ('/')
+  fill_in 'term-search', with: 'calculus'
   select 'Maths', from: 'field_id'
   click_button 'Search'
   click_link 'More'

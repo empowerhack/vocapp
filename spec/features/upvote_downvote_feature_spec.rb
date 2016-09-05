@@ -7,25 +7,25 @@ feature 'Upvoting and downvoting' do
     add_answer
   end
 
-  scenario 'downvoting works' do
-    click_button 'Downvote'
-    expect(page).to have_content 'Downvotes: 1'
+  scenario 'downvoting works'  do
+    page.find(".downvote").click
+    expect(page.find(".score")).to have_content '-1'
   end
 
   scenario 'upvoting works' do
-    click_button 'Upvote'
-    expect(page).to have_content 'Upvotes: 1'
+    page.find(".upvote").click
+    expect(page.find(".score")).to have_content '1'
   end
 
   scenario 'upvoting cancels downvoting' do
-    click_button 'Downvote'
-    click_button 'Upvote'
-    expect(page).to have_content 'Downvotes: 0'
+    page.find(".downvote").click
+    page.find(".upvote").click
+    expect(page.find(".score")).to have_content '0'
   end
 
   scenario 'downvoting cancels upvoting' do
-    click_button 'Upvote'
-    click_button 'Downvote'
-    expect(page).to have_content 'Upvotes: 0'
+    page.find(".upvote").click
+    page.find(".downvote").click
+    expect(page.find(".score")).to have_content '0'
   end
 end

@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+*:focus {
+  outline: 0;
+}
+
+* {
+  transition: 0.3s ease-out;
+  -webkit-transition: 0.3s ease-out;
+}
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.container {
+  max-width: $max-width; /* 1 */
+  margin-left: auto; /* 2 */
+  margin-right: auto; /* 2 */
+  padding-left: 20px; /* 3 */
+  padding-right: 20px; /* 3 */
+  width: 100%; /* 1 */
+ }
+
+ .clear-top {
+  padding-top: 130px;
+ }
+
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+.visually-hidden { 
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.centered {
+  display: table;
+  margin: 0 auto;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}

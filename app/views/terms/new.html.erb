@@ -1,15 +1,17 @@
-<h2>Submit a new term</h2>
+<div class="clear-top col-sm-10 offset-sm-1 col-md-4 offset-md-4 nf-form">
+  <h2>Submit a new term</h2>
 
-<%= form_for @term do |f| %>
-  <p>
-    <%= f.label "Enter your term:" %><br>
-    <%= f.text_field :term_en, placeholder: "Enter term", value: params[:term_en], required: true %>
-  </p>
-  <p>
-    <%= f.label "Choose academic field:" %><br>
-    <%= f.select :field_id, options_from_collection_for_select(@fields, 'id', 'name'), {prompt: true}, {required: true}  %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <%= form_for @term do |f| %>
+    <p class="field">
+      <%= f.label "Enter your term:" %><br>
+      <%= f.text_field :term_en, placeholder: "Enter term", value: params[:term_en], required: true %>
+    </p>
+    <p class="field">
+      <%= f.label "Choose academic field:" %><br>
+      <%= f.select :field_id, options_from_collection_for_select(@fields, 'id', 'name'), {prompt: true}, {required: true}  %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>

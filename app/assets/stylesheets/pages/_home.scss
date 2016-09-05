@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+#homepage-true {
+	background: transparent;
+}
+
+.hero-form-wrap {
+	width: 100vw;
+	height: 100vh;
+	background: $brand-color;
+	background: -moz-linear-gradient(-45deg,  #36bb78 0%, #70c143 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  #36bb78 0%,#70c143 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  #36bb78 0%,#70c143 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#36bb78', endColorstr='#70c143',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	font-size: 125%;
+	form {
+		@include vertical-align();
+		* {
+			font-family: $text-font-stack;
+			letter-spacing: 0.5px;
+		}
+		input[type="text"] {
+			width: 180px;
+			margin: 0 5px;
+			line-height: 1.8em;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			box-shadow: none;
+			color: white;
+			&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+				color: white;
+			}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color: white;
+			   opacity: 1;
+			}
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color: white;
+			   opacity: 1;
+			}
+			&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			   color: white;
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+		select.form-control:not([size]):not([multiple]){
+			margin: 0 5px;
+			height: auto;
+			font-size: 1em;
+			color: white;
+			padding: 6px;
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid white;
+			border-radius: 0;
+			-webkit-appearance: none;
+			cursor: pointer;
+			width: 180px;
+		}
+		input[type="submit"] {
+			background: white;
+			color: $brand-color;
+			-webkit-appearance: none;
+			border: 0;
+			padding: 0.6rem;
+			&:hover {
+				background: rgba(255,255,255,0.9);
+			}
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 700px) {
+	.hero-form-wrap form {
+		.form-group {
+			float: none;
+			clear: both; 
+			width: 100%;
+			margin: 0 0 1rem;
+			text-align: center;
+			label {
+				display: block;
+				float: none;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 550px) {
+	.hero-form-wrap form {
+		padding: 0 1.5rem 0 1rem;
+		.form-group input {
+			width: 100%;
+		}
+		select {
+			width: 100% !important;
+		}
+	}
+}
