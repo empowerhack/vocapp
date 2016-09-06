@@ -1,23 +1,29 @@
-<a href='/'>Back to Search</a>
-<h2>Search Results</h2>
-<% if @terms.size == 0 %>
-  <h2>No results for '<%=@searched_term%>' <a href="/terms/new">Add a new term</a></h2>
-<% else %>
-  <% @term_titles.each do |title| %>
-    <div class="card">
-      <div class="card-block">
-        <h2 class="card-header"><%= title %></h2>
-        <% @terms.where(term_en: title).each do |term| %>
-          <h5 class="card-title"><%= @fields.find(term.field_id).name %></h5>
-          <% if term.answers.length == 0 %>
-            <p class="card-text">No answers for this term yet.</p>
-          <% else %>
-            <p class="card-text col-sm-10"><%= term.answers[0].definition %></p>
-          <% end %>
-          <p class="card-text col-sm-2"><a href="terms/<%=term.id%>">More</a></p>
-        <% end %>
-        <%= link_to "Add a new term with a different academic field", new_term_path(term_en: title) %>
-      </div>
+<div class="results-page">
+  <a href='/'>&lt; Back to search</a>
+  <% if @terms.size == 0 %>
+    <div class="isolated-msg">
+      No results for '<%=@searched_term%>'.<br />
+      <a href="/terms/new">Add a new term</a>
     </div>
+  <% else %>
+    <% @term_titles.each do |title| %>
+      <div class="row result-card">
+        <div class="col-md-2 col-sm-12 result-term"><%= title %></div>
+        <div class="col-md-10 col-sm-12">
+        <% @terms.where(term_en: title).each do |term| %>
+          <div class="row result-line">
+            <div class="col-sm-3 result-field"><span><%= @fields.find(term.field_id).name %></span></div>
+            <% if term.answers.length == 0 %>
+              <div class="col-sm-8 text-right no-term">No answers for this term yet.</div>
+            <% else %>
+              <div class="col-sm-8 result-ar"><%= term.answers.order("score DESC").first.definition %></div>
+            <% end %>
+            <div class="col-sm-1 result-link"><a href="terms/<%=term.id%>">More</a></div>
+          </div>
+        <% end %>
+        <%= link_to "Add new field", new_term_path(term_en: title), :class => "new-result-term" %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -4,7 +4,7 @@ feature 'User sign in/out' do
   context 'User not signed in on homepage' do
     it 'log in and and a sign up link present' do
       visit('/')
-      expect(page).to have_link('Login')
+      expect(page).to have_link('Log in')
       expect(page).to have_link('Sign up')
     end
 
@@ -26,7 +26,7 @@ feature 'User sign in/out' do
 
     it 'should not show login and sign up link' do
       visit '/'
-      expect(page).not_to have_link('Login')
+      expect(page).not_to have_link('Log in')
       expect(page).not_to have_link('Sign up')
     end
   end

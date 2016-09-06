@@ -1,0 +1,25 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 100% / 1 $text-font-stack;
+}
+
+.alt-theme {
+	color: white;
+	a {
+		color: white;
+		&:hover {
+			color: rgba(255,255,255,0.7);
+		}
+	}
+}
+button, input, optgroup, select, textarea {
+    font-family: $text-font-stack;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 150%;
+}
