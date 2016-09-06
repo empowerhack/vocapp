@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Flags' do
   before do
-    sign_up
+    sign_in_admin
     add_calculus_term
     add_answer
   end
@@ -15,12 +15,12 @@ feature 'Flags' do
   scenario 'flags appear on the flag page' do
     click_button 'Flag'
     visit('/flags')
-    expect(page).not_to have_content 'No flagged items'
-    expect(page).to have_content 'All flagged items'
+    expect(page).not_to have_content 'No flagged answers'
+    expect(page).to have_content 'Flagged answers'
   end
 
   scenario 'flags not to appear on the flag page when no flags' do
     visit('/flags')
-    expect(page).to have_content 'No flagged items'
+    expect(page).to have_content 'No flagged answers'
   end
 end
