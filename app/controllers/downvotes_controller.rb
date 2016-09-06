@@ -7,7 +7,7 @@ class DownvotesController < ApplicationController
       notify_already_up_downvoted('downvote', params[:term_id])
     else
       create_downvote(answer)
-      refresh_term_page(params[:term_id])
+      redirect_to request.referrer
     end
   end
 
@@ -16,7 +16,7 @@ class DownvotesController < ApplicationController
     downvote = find_downvote(answer, params[:id])
     if current_user.has_downvoted? answer
       downvote.destroy
-      refresh_term_page(params[:term_id])
+      redirect_to request.referrer
     end
   end
 
