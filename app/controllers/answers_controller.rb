@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
 
   def destroy
     answer = Answer.find(params[:id])
-    if current_user.created_answer? answer || current_user.admin?
+    if current_user.created_answer? answer or current_user.admin?
       answer.destroy
       redirect_to request.referrer
     end

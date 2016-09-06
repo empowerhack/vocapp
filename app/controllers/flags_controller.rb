@@ -17,8 +17,8 @@ class FlagsController < ApplicationController
     flag = Flag.find(params[:id])
     if current_user.has_flagged? answer or current_user.admin?
       flag.destroy
+      redirect_to request.referrer
     end
-    redirect_to request.referrer
   end
 
   def index
