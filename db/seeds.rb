@@ -23,6 +23,11 @@ user = User.create!(email:"p@p.com", password:"password")
 user.id = 1
 user.save!
 
+# Creates an admin user
+superUser = User.create!(email: "admin@gmail.com", password: "password")
+superUser.admin = true
+superUser.save!
+
 # Creates each non-duplicate field in DB
 fields.uniq.each { |f| Field.create!(name: f) }
 

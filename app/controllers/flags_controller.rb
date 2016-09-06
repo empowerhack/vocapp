@@ -17,7 +17,7 @@ class FlagsController < ApplicationController
     flag = answer.flags.find(params[:id])
     if current_user.has_flagged? answer
       flag.destroy
-      refresh_term_page(params[:term_id])
+      redirect_to request.referrer
     end
   end
 
