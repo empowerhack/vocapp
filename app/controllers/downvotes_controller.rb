@@ -6,17 +6,26 @@ class DownvotesController < ApplicationController
     if current_user.has_downvoted? answer
       notify_already_up_downvoted('downvote', params[:term_id])
     else
-      answer.downvotes.create({user_id: current_user.id})
-      redirect_to "/terms/#{params[:term_id]}"
+      create_downvote(answer)
+      refresh_term_page(params[:term_id])
     end
   end
 
   def destroy
     answer = find_answer(params[:answer_id])
-    downvote = answer.downvotes.find(params[:id])
+    downvote = find_downvote(answer, params[:id])
     if current_user.has_downvoted? answer
       downvote.destroy
-      redirect_to "/terms/#{params[:term_id]}"
+      refresh_term_page(params[:term_id])
     end
+  end
+
+private
+  def create_downvote(answer)
+    answer.downvotes.create({user_id: current_user.id})
+  end
+
+  def find_downvote(answer, id)
+    answer.downvotes.find(id)
   end
 end

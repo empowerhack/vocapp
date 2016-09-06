@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
 
   def notify_already_up_downvoted(string, term_id)
     flash[:notice] = "You cannot #{string} more than once"
+    refresh_term_page(term_id)
+  end
+
+  def refresh_term_page(term_id)
     redirect_to "/terms/#{term_id}"
   end
 end

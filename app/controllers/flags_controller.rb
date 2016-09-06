@@ -5,10 +5,10 @@ class FlagsController < ApplicationController
     answer = find_answer(params[:answer_id])
     if current_user.has_flagged? answer
       flash[:notice] = 'You cannot flag more than once'
-      redirect_to "/terms/#{params[:term_id]}"
+      refresh_term_page(params[:term_id])
     else
       answer.flags.create({user_id: current_user.id})
-      redirect_to "/terms/#{params[:term_id]}"
+      refresh_term_page(params[:term_id])
     end
   end
 
@@ -17,7 +17,7 @@ class FlagsController < ApplicationController
     flag = answer.flags.find(params[:id])
     if current_user.has_flagged? answer
       flag.destroy
-      redirect_to "/terms/#{params[:term_id]}"
+      refresh_term_page(params[:term_id])
     end
   end
 
