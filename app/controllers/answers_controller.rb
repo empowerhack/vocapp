@@ -23,6 +23,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    answer = Answer.find(params[:id])
+    if current_user.created_answer? answer or current_user.admin?
+      answer.destroy
+      redirect_to request.referrer
+    end
+  end
+
   private
     def answer_params
       params.require(:answer).permit(:definition, :upvotes, :downvotes)
