@@ -9,6 +9,10 @@ module TermsHelper
     #:term_ar, :ac_field_en, :ac_field_ar, :definition_en, :definition_ar, :context_en, :context_ar)
   end
 
+  def no_answers?(term)
+    term.answers.length == 0
+  end
+
   def get_unique(terms)
     terms.map {|t| t.term_en}.uniq
   end
