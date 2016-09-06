@@ -5,10 +5,10 @@ class UpvotesController < ApplicationController
     answer = Answer.find(params[:answer_id])
     if current_user.has_upvoted? answer
       flash[:notice] = 'You cannot upvote more than once'
-      redirect_to "/terms/#{params[:term_id]}"
+      redirect_to request.referrer
     else
       answer.upvotes.create({user_id: current_user.id})
-      redirect_to "/terms/#{params[:term_id]}"
+      redirect_to request.referrer
     end
   end
 
@@ -17,7 +17,7 @@ class UpvotesController < ApplicationController
     upvote = answer.upvotes.find(params[:id])
     if current_user.has_upvoted? answer
       upvote.destroy
-      redirect_to "/terms/#{params[:term_id]}"
+      redirect_to request.referrer
     end
   end
 end
