@@ -1,11 +1,21 @@
-<br>
-<br>
-<br>
-<br>
-<%= form_for([@term, @answer], :url => {:action => 'update'}) do |t| %>
-  <div class="form-group">
-    <%= t.label 'Edit definition' %>
-    <%= t.text_field "definition" %>
-    <%= t.submit value: "Save changes" %>
+<div class="results-page">
+  <div class="term-card">
+    <div class="term-header">
+      <span class="term-title"><%= Term.find(@answer.term_id).term_en %></span>
+      <span class="term-field"><%= Field.find(Term.find(@answer.term_id).field_id).name %></span>
+    </div>
+    <div class="term-create-block">
+      <%= form_for([@term, @answer], :url => {:action => 'update'}) do |t| %>
+        <div class="form-group">
+          <p>
+            <br>
+            <%= t.text_area :definition, required: true %>
+          </p>
+          <p>
+            <%= t.submit %>
+          </p>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
