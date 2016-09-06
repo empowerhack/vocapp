@@ -32,8 +32,10 @@ end
 Rails.application.routes.draw do
   root 'application#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  
+  get '/terms/:term_id/answers/:id/edit' => 'answers#edit', as: 'edit_term_answer', constraints: Constraint::DidUserCreateAnswer.new
   resources :terms do
-    resources :answers, constraints: Constraint::DidUserCreateAnswer.new do
+    resources :answers, except: :edit do
       resources :upvotes
       resources :downvotes
       resources :flags
