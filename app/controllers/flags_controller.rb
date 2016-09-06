@@ -3,7 +3,7 @@ class FlagsController < ApplicationController
 
   def create
     answer = find_answer(params[:answer_id])
-    if current_user.has_flagged? answer
+    if current_user.has_flagged? answer or current_user.admin?
       flash[:notice] = 'You cannot flag more than once'
       refresh_term_page(params[:term_id])
     else
