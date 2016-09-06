@@ -6,15 +6,15 @@
     <% @flags.each do |flag| %>
       <div class="card">
         <div class="card-block">
-          <h2 class="card-header">Flagged Answer: <%= find_answer(flag).definition %></h2>
-            <p class="card-text col-sm-10">For the term: <%= find_term(find_answer(flag)).term_en %></p>
+          <h2 class="card-header">Flagged Answer: <%= find_answer_from_flag(flag).definition %></h2>
+            <p class="card-text col-sm-10">For the term: <%= find_term(find_answer_from_flag(flag)).term_en %></p>
             <p class="card-text col-sm-2">
-              <%= form_for([find_term(find_answer(flag)), find_answer(flag), flag], method: 'delete') do |f| %>
+              <%= form_for([find_term(find_answer_from_flag(flag)), find_answer_from_flag(flag), flag], method: 'delete') do |f| %>
                 <%= f.submit value:"Unflag" %>
               <% end %>
             </p>
             <p class="card-text col-sm-2">
-              <%= form_for([find_term(find_answer(flag)), find_answer(flag)], method: 'delete') do |f| %>
+              <%= form_for([find_term(find_answer_from_flag(flag)), find_answer_from_flag(flag)], method: 'delete') do |f| %>
                 <%= f.submit value:"Delete" %>
               <% end %>
             </p>
