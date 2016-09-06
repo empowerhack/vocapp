@@ -35,5 +35,4 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:definition, :upvotes, :downvotes)
     end
-
 end

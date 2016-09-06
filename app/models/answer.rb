@@ -8,7 +8,7 @@ class Answer < ActiveRecord::Base
 
   validates :definition, presence: true
 
-    def update_score
-      update_attributes(score: (upvotes.count - downvotes.count))
-    end
+  def update_score
+    update_attributes(score: (upvotes.count - downvotes.count))
+  end
 end

@@ -2,22 +2,30 @@ class DownvotesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def create
-    answer = Answer.find(params[:answer_id])
+    answer = find_answer(params[:answer_id])
     if current_user.has_downvoted? answer
-      flash[:notice] = 'You cannot downvote more than once'
-      redirect_to "/terms/#{params[:term_id]}"
+      notify_already_up_downvoted('downvote', params[:term_id])
     else
-      answer.downvotes.create({user_id: current_user.id})
-      redirect_to "/terms/#{params[:term_id]}"
+      create_downvote(answer)
+      redirect_to request.referrer
     end
   end
 
   def destroy
-    answer = Answer.find(params[:answer_id])
-    downvote = answer.downvotes.find(params[:id])
+    answer = find_answer(params[:answer_id])
+    downvote = find_downvote(answer, params[:id])
     if current_user.has_downvoted? answer
       downvote.destroy
-      redirect_to "/terms/#{params[:term_id]}"
+      redirect_to request.referrer
     end
+  end
+
+private
+  def create_downvote(answer)
+    answer.downvotes.create({user_id: current_user.id})
+  end
+
+  def find_downvote(answer, id)
+    answer.downvotes.find(id)
   end
 end

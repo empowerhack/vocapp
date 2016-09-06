@@ -111,6 +111,7 @@ facebook_app_id = [app id here!]
 ### Run tests:
 1- create a database called vocapp_test on your psql, then:
 ```
+$ bin/rake db:reset RAILS_ENV=test
 $ rspec
 ```
 

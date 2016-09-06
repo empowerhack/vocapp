@@ -1,24 +1,63 @@
 <div class="results-page">
   <% if @flags.size == 0 %>
-    <h1>No flagged answers. </h1>
+    <h1>No flagged answers.</h1>
   <% else %>
     <h1>Flagged answers</h1>
     <% @flags.each do |flag| %>
-      <div class="card">
-        <div class="card-block">
-          <h2 class="card-header">Flagged Answer: <%= find_answer(flag).definition %></h2>
-            <p class="card-text col-sm-10">For the term: <%= find_term(find_answer(flag)).term_en %></p>
-            <p class="card-text col-sm-2">
-              <%= form_for([find_term(find_answer(flag)), find_answer(flag), flag], method: 'delete') do |f| %>
-                <%= f.submit value:"Unflag" %>
-              <% end %>
-            </p>
-            <p class="card-text col-sm-2">
-              <%= form_for([find_term(find_answer(flag)), find_answer(flag)], method: 'delete') do |f| %>
-                <%= f.submit value:"Delete" %>
-              <% end %>
-            </p>
+      <% answer = answer_for(flag) %>
+      <% term = term_for(answer) %>
+      <% field = field_for(term) %>
+      <div class="term-card">
+        <div class="term-header">
+          <span class="term-title"><%= term.term_en %></span>
+          <span class="term-field"><%= field.name %></span>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item clearfix">
+            <div class="col-xs-2 feedback">
+              <% if user_signed_in? && current_user.has_upvoted?(answer) %>
+                <%= form_for([term, answer, answer.upvotes.build]) do |f| %>
+                  <%= f.submit value: "", class:"upvoted upvote" %>
+                <% end %>
+                <div class="score"><%= answer.score %></div>
+                <%= form_for([term, answer, answer.upvotes.find_by(user_id: current_user.id, answer_id: answer.id)], method: 'delete') do |f| %>
+                  <%= f.submit value: "", class:"downvote" %>
+                <% end %>
+              <% elsif user_signed_in? && current_user.has_downvoted?(answer) %>
+                <%= form_for([term, answer, answer.downvotes.find_by(user_id: current_user.id, answer_id: answer.id)], method: 'delete') do |f| %>
+                  <%= f.submit value: "", class:"upvote" %>
+                <% end %>
+                <div class="score"><%= answer.score %></div>
+                <%= form_for([term, answer, answer.downvotes.build]) do |f| %>
+                  <%= f.submit value: "", class:"downvoted downvote" %>
+                <% end %>
+              <% else %>
+                <%= form_for([term, answer, answer.upvotes.build]) do |f| %>
+                  <%= f.submit value: "", class:"upvote" %>
+                <% end %>
+                <div class="score"><%= answer.score %></div>
+                <%= form_for([term, answer, answer.downvotes.build]) do |f| %>
+                  <%= f.submit value: "", class:"downvote" %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-xs-10 term-ar">
+              <%= answer.definition %>
+              <div>
+                <%= form_for([term, answer], method: 'delete') do |f| %>
+                  <%= f.submit value:"Delete", class:"flag" %>
+                  <small class="text-muted">submitted by <%=user_email_for(answer)%></small>
+                <% end %>
+              </div>
+              <div>
+                <%= form_for([term, answer, flag], method: 'delete') do |f| %>
+                  <%= f.submit value:"Unflag", class:"flag" %>
+                  <small class="text-muted">flagged by <%= user_email_for(flag) %></small>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     <% end %>
   <% end %>

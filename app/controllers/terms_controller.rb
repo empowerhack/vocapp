@@ -11,7 +11,7 @@ class TermsController < ApplicationController
     else
       @terms = Term.all.order(:term_en)
     end
-    if params[:field_id] && params[:field_id] != ""
+    if field_selected?(params[:field_id])
       @terms = filtered_results(params[:field_id])
     end
     @term_titles = get_unique(@terms)
@@ -27,11 +27,9 @@ class TermsController < ApplicationController
     term = field.terms.new(term_params)
     term.user_id = current_user.id
     if term.save
-      flash[:notice] = "Your term \"#{term[:term_en]}\" has been submitted."
-      redirect_to '/terms'
+      notify_and_redirect(term[:term_en])
     else
-      flash[:alert] = term.errors.empty? ? "Sorry, there was a problem submitting your new term." : term.errors.full_messages.to_sentence
-      redirect_to '/terms/new'
+      alert_and_redirect(term)
     end
   end
 
@@ -54,5 +52,4 @@ class TermsController < ApplicationController
   def destroy
     @term = Term.find(params[:id])
   end
-
 end
