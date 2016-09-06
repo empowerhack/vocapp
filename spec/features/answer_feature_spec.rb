@@ -46,6 +46,5 @@ feature 'Answers' do
       click_link 'More'
       expect(page.all('.list-group-item').first).to have_content 'second fake definition'
     end
-
   end
 end

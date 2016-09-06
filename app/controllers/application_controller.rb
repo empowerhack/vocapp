@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   after_filter :store_location
 
   def index
-    @fields = Field.all 
+    @fields = Field.all
   end
 
   def store_location
@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
+  def find_answer(answer_id)
+    Answer.find(answer_id)
+  end
+
+  def notify_already_up_downvoted(string, term_id)
+    flash[:notice] = "You cannot #{string} more than once"
+    redirect_to "/terms/#{term_id}"
+  end
 end

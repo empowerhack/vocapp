@@ -2,7 +2,7 @@ class FlagsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def create
-    answer = Answer.find(params[:answer_id])
+    answer = find_answer(params[:answer_id])
     if current_user.has_flagged? answer
       flash[:notice] = 'You cannot flag more than once'
       redirect_to "/terms/#{params[:term_id]}"
@@ -13,7 +13,7 @@ class FlagsController < ApplicationController
   end
 
   def destroy
-    answer = Answer.find(params[:answer_id])
+    answer = find_answer(params[:answer_id])
     flag = answer.flags.find(params[:id])
     if current_user.has_flagged? answer
       flag.destroy
