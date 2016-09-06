@@ -15,9 +15,9 @@ class FlagsController < ApplicationController
   def destroy
     answer = find_answer(params[:answer_id])
     flag = answer.flags.find(params[:id])
-    if current_user.has_flagged? answer || current_user.admin?
+    if current_user.has_flagged? answer or current_user.admin?
       flag.destroy
-      redirect_to request.referrer
+      refresh_term_page(params[:term_id])
     end
   end
 
