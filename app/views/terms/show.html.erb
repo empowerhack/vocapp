@@ -53,6 +53,7 @@
             <div>
               <% if user_signed_in? && answer.user_id == current_user.id %>
                 <%= link_to 'edit', edit_term_answer_path(@term, answer) %>
+                <%= link_to 'delete', term_answer_path(@term, answer), method: 'delete' %>
               <% end %>
             </div>
           </div>
