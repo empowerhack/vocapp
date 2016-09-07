@@ -22,6 +22,15 @@ class FlagsController < ApplicationController
   end
 
   def index
-    @flags = Flag.all
+    @fields = Field.all
+    if field_selected?(params[:field_id])
+      @flags = filtered_flags(params[:field_id])
+    else
+      @flags = Flag.all
+    end
+  end
+
+  def filtered_flags(field_id)
+    return Flag.includes(answer: :term).where(["terms.field_id = #{field_id}"]).references(:term)
   end
 end
