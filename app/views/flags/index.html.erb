@@ -1,4 +1,16 @@
 <div class="results-page">
+  <form role="form" action="/flags" method="get" id="field_filter" class="form-inline">
+    <div class="form-group">
+      <label for="field-search">Field filter:</label>
+      <select class="form-control input-sm" name ="field_id" form="field_filter" id="field-search">
+          <option value="" disabled selected>all fields</option>
+          <% @fields.each do |field| %>
+            <option value="<%= field.id %>"><%= field.name %></option>
+          <% end %>
+      </select>
+    </div>
+    <input type="submit" value="Search">
+  </form>
   <% if @flags.size == 0 %>
     <h1>No flagged answers.</h1>
   <% else %>

@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
   def refresh_term_page(term_id)
     redirect_to "/terms/#{term_id}"
   end
+
+  def field_selected?(field_id)
+    field_id && field_id != ""
+  end
 end

@@ -30,10 +30,6 @@ module TermsHelper
     @terms.where(field_id: field_id)
   end
 
-  def field_selected?(field_id)
-    field_id && field_id != ""
-  end
-
   def notify_and_redirect(term_en)
     flash[:notice] = "Your term \"#{term_en}\" has been submitted."
     redirect_to '/terms'
