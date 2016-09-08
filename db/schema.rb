@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20160901121558) do
     t.datetime "updated_at",                  null: false
     t.integer  "term_id"
     t.integer  "user_id"
-    t.boolean  "flagged"
     t.integer  "upvotes_count",   default: 0
     t.integer  "downvotes_count", default: 0
     t.integer  "score",           default: 0

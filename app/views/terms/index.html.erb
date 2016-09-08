@@ -12,7 +12,7 @@
         <div class="col-md-10 col-sm-12">
         <% @terms.where(term_en: title).each do |term| %>
           <div class="row result-line">
-            <div class="col-sm-3 result-field"><span><%= @fields.find(term.field_id).name %></span></div>
+            <div class="col-sm-3 result-field"><span> <a href="terms?term_en=&field_id=<%= term.field.id %>"><%= @fields.find(term.field_id).name %></a></span></div>
             <% if no_answers?(term) %>
               <div class="col-sm-8 text-right no-term">No answers for this term yet.</div>
             <% else %>
