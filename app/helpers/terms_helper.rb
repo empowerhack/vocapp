@@ -18,6 +18,9 @@ module TermsHelper
   end
 
   def search_contains_characters(params)
+    if !!(params[:term_en])
+      params[:term_en].downcase!
+    end
     match_data = params[:term_en] =~ /\w/
     match_data != nil
   end

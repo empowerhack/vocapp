@@ -7,12 +7,12 @@ class TermsController < ApplicationController
     @fields = Field.all
     @answers = Answer.all
     if search_contains_characters(params)
-      @terms =  unfiltered_results(params[:term_en])
+      @terms =  unfiltered_results(params[:term_en].downcase)
     else
       @terms = Term.all.order(:term_en)
     end
     if field_selected?(params[:field_id])
-      @terms = filtered_results(params[:field_id])
+      @terms = filtered_results(params[:field_id].downcase)
     end
     @term_titles = get_unique(@terms)
   end
