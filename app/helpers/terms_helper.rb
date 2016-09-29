@@ -1,9 +1,9 @@
 module TermsHelper
   def term_params
     if params['term']
-      params['term'].permit(:term_en, :field_id, :user_id)
+      params['term'].permit(:term_en, :field_id, :user_id, :context_en, :term_ar_match)
     else
-      params.permit(:term_en, :field_id, :user_id)
+      params.permit(:term_en, :field_id, :user_id, :context_en, :term_ar_match)
     end
     # disallowed params for now
     #:term_ar, :ac_field_en, :ac_field_ar, :definition_en, :definition_ar, :context_en, :context_ar)
