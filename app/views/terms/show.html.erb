@@ -3,6 +3,12 @@
   <div class="term-card">
     <div class="term-header">
       <span class="term-title"><%= @term.term_en %></span>
+      <%if @term.context_en %>
+      <span>Context: <%= @term.context_en %></span>
+      <%end %>
+      <%if @term.term_ar_match %>
+      <span>Arabic direct translation: <%= @term.term_ar_match %></span>
+      <%end %>
       <span class="term-field"><%= @fields.find(@term.field_id).name %></span>
     </div>
     <ul class="list-group list-group-flush">
