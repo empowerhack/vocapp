@@ -6,7 +6,7 @@ describe TermsController, type: :controller do
   describe "GET term" do
     it "gets term by id " do
       get :show, id: term
-      assigns(:term).should eq(term)
+      expect(assigns(:term)).to eq(term)
     end
   end
 end

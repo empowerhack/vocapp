@@ -17,7 +17,7 @@ describe User, type: :model do
     it 'should return true if the user upvoted an answer' do
       term = stub_model(Term, user: user)
       answer = stub_model(Answer, user: user, term: term)
-      user.stub(:upvoted_answers) { [answer] }
+      allow(user).to receive(:upvoted_answers) { [answer] }
       expect(user.has_upvoted?(answer)).to eq true
     end
   end
@@ -26,7 +26,7 @@ describe User, type: :model do
     it 'should return true if the user downvoted an answer' do
       term = stub_model(Term, user: user)
       answer = stub_model(Answer, user: user, term: term)
-      user.stub(:downvoted_answers) { [answer] }
+      allow(user).to receive(:downvoted_answers) { [answer] }
       expect(user.has_downvoted?(answer)).to eq true
     end
   end
