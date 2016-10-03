@@ -43,6 +43,12 @@
             <%if answer.term_ar_match %>
             <p>Arabic direct translation: <%= answer.term_ar_match %></p>
             <%end %>
+            <%if answer.context_en %>
+            <p>Context in English: <%= answer.term_ar_match %></p>
+            <%end %>
+            <%if answer.context_ar %>
+            <p>Context in Arabic: <%= answer.term_ar_match %></p>
+            <%end %>
             <div>
               <% if user_signed_in? && current_user.has_flagged?(answer) %>
                 <%= form_for([@term, @answers.find(answer.id), answer.flags.find_by(user_id: current_user.id, answer_id: answer.id)], method: 'delete') do |f| %>
@@ -76,6 +82,14 @@
           <p class="field">
             <%= f.label "Enter the direct Arabic translation if there is one (optional):" %><br>
             <%= f.text_field :term_ar_match, value: params[:term_ar_match], required: false %>
+          </p>
+          <p class="field">
+            <%= f.label "Enter context in English (optional):" %><br>
+            <%= f.text_field :context_en, value: params[:context_en], required: false %>
+          </p>
+          <p class="field">
+            <%= f.label "Enter context in Arabic (optional):" %><br>
+            <%= f.text_field :context_ar, value: params[:context_ar], required: false %>
           </p>
         </p>
         <p>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003162933) do
+ActiveRecord::Schema.define(version: 20161003163259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20161003162933) do
     t.integer  "downvotes_count", default: 0
     t.integer  "score",           default: 0
     t.string   "term_ar_match"
+    t.string   "context_en"
+    t.string   "context_ar"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
