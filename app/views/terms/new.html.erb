@@ -8,11 +8,7 @@
     </p>
     <p class="field">
       <%= f.label "Enter context of the term in English (optional):" %><br>
-      <%= f.text_field :context_en, placeholder: "Enter term", value: params[:context_en], required: false %>
-    </p>
-    <p class="field">
-      <%= f.label "Enter the direct Arabic translation if there is one (optional):" %><br>
-      <%= f.text_field :term_ar_match, placeholder: "Enter term", value: params[:term_ar_match], required: false %>
+      <%= f.text_field :context_en, placeholder: "Enter context", value: params[:context_en], required: false %>
     </p>
     <p class="field">
       <%= f.label "Choose academic field:" %><br>

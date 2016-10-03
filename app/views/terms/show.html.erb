@@ -73,6 +73,10 @@
         <p>
           <%= f.label "Add a new answer" %><br>
           <%= f.text_area :definition, required: true %>
+          <p class="field">
+            <%= f.label "Enter the direct Arabic translation if there is one (optional):" %><br>
+            <%= f.text_field :term_ar_match, value: params[:term_ar_match], required: false %>
+          </p>
         </p>
         <p>
           <%= f.submit %>
