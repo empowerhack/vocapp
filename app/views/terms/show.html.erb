@@ -6,9 +6,6 @@
       <%if @term.context_en %>
       <span>Context: <%= @term.context_en %></span>
       <%end %>
-      <%if @term.term_ar_match %>
-      <span>Arabic direct translation: <%= @term.term_ar_match %></span>
-      <%end %>
       <span class="term-field"><%= @fields.find(@term.field_id).name %></span>
     </div>
     <ul class="list-group list-group-flush">
@@ -43,6 +40,9 @@
           </div>
           <div class="col-xs-10 term-ar">
             <%= answer.definition %>
+            <%if answer.term_ar_match %>
+            <p>Arabic direct translation: <%= answer.term_ar_match %></p>
+            <%end %>
             <div>
               <% if user_signed_in? && current_user.has_flagged?(answer) %>
                 <%= form_for([@term, @answers.find(answer.id), answer.flags.find_by(user_id: current_user.id, answer_id: answer.id)], method: 'delete') do |f| %>
