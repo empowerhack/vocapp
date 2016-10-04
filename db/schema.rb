@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901121558) do
+ActiveRecord::Schema.define(version: 20161003163259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20160901121558) do
     t.integer  "upvotes_count",   default: 0
     t.integer  "downvotes_count", default: 0
     t.integer  "score",           default: 0
+    t.string   "term_ar_match"
+    t.string   "context_en"
+    t.string   "context_ar"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
@@ -60,10 +63,12 @@ ActiveRecord::Schema.define(version: 20160901121558) do
   create_table "terms", force: :cascade do |t|
     t.string   "term_en"
     t.string   "context_en"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "field_id"
     t.integer  "user_id"
+    t.string   "context_ar"
+    t.string   "term_ar_match"
   end
 
   add_index "terms", ["field_id"], name: "index_terms_on_field_id", using: :btree
