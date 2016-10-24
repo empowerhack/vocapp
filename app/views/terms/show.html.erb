@@ -77,18 +77,18 @@
     <% if user_signed_in? %>
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
-          <%= f.label "Add a new answer" %><br>
+          <%= f.label :definition, "Add a new answer" %><br>
           <%= f.text_area :definition, required: true %>
           <p class="field">
-            <%= f.label "Enter the direct Arabic translation if there is one (optional):" %><br>
+            <%= f.label :term_ar_match, "Enter the direct Arabic translation if there is one (optional):" %><br>
             <%= f.text_field :term_ar_match, value: params[:term_ar_match], required: false %>
           </p>
           <p class="field">
-            <%= f.label "Enter context in English (optional):" %><br>
+            <%= f.label :context_en, "Enter context in English (optional):" %><br>
             <%= f.text_field :context_en, value: params[:context_en], required: false %>
           </p>
           <p class="field">
-            <%= f.label "Enter context in Arabic (optional):" %><br>
+            <%= f.label :context_ar, "Enter context in Arabic (optional):" %><br>
             <%= f.text_field :context_ar, value: params[:context_ar], required: false %>
           </p>
         </p>
