@@ -129,6 +129,18 @@
 					}
 				}
 			}
+			.term-label {
+				color: $brand-color;
+				display: block;
+				font-size: 0.6em;
+				text-transform: uppercase;
+				margin-bottom: 5px;
+			}
+			.term-text {
+				display: block;
+				font-size: 1em;
+				margin-bottom: 1.5rem;
+			}
 		}
 	}
 	.term-create-block {

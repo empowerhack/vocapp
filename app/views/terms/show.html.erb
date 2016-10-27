@@ -39,15 +39,19 @@
             <% end %>
           </div>
           <div class="col-xs-10 term-ar">
-            <%= answer.definition %>
             <%if answer.term_ar_match %>
-            <p>Arabic direct translation: <%= answer.term_ar_match %></p>
+            <span class="term-label">Arabic direct translation</span>
+            <span class="term-text"><%= answer.term_ar_match %></span>
             <%end %>
+            <span class="term-label">Arabic full answer</span>
+            <span class="term-text"><%= answer.definition %></span>
             <%if answer.context_en %>
-            <p>Context in English: <%= answer.term_ar_match %></p>
+            <span class="term-label">English term in context</span>
+            <span class="term-text"><%= answer.term_ar_match %></span>
             <%end %>
             <%if answer.context_ar %>
-            <p>Context in Arabic: <%= answer.term_ar_match %></p>
+            <span class="term-label">Arabic term in context</span>
+            <span class="term-text"><%= answer.term_ar_match %></span>
             <%end %>
             <div>
               <% if user_signed_in? && current_user.has_flagged?(answer) %>
