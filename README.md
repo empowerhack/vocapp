@@ -61,7 +61,7 @@ Research & Content
 
 ### Hosting
 
-* TBC
+* Prototype is on [heroku] (https://vocabulary-app.herokuapp.com/)
 
 
 ---
