@@ -5,6 +5,7 @@ def add_answer
   click_button 'Search'
   click_link 'More'
   fill_in 'answer_definition', with: 'fake definition'
+  fill_in 'answer_ref_url', with: 'wikipedia.org/wiki/Calculus'
   click_button 'Create Answer'
 end
 
