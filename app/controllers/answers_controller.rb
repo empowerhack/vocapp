@@ -33,6 +33,6 @@ class AnswersController < ApplicationController
 
   private
     def answer_params
-      params.require(:answer).permit(:definition, :upvotes, :downvotes, :term_ar_match, :context_en, :context_ar)
+      params.require(:answer).permit(:definition_en, :definition_ar, :upvotes, :downvotes, :term_ar_match, :context_en, :context_ar)
     end
 end

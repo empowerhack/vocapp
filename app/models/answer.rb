@@ -6,7 +6,7 @@ class Answer < ActiveRecord::Base
   has_many :downvotes, dependent: :destroy
   has_many :flags, dependent: :destroy
 
-  validates :definition, presence: true
+  validates :definition_en, presence: true
 
   def update_score
     update_attributes(score: (upvotes.count - downvotes.count))
