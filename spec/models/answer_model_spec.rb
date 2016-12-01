@@ -29,7 +29,7 @@ describe Answer, type: :model do
       expect(answer.url_fixer(url_string)).to eq 'http://' + url_string
     end
 
-    it 'returns the nil if urlisnil' do
+    it 'returns nil if url is nil' do
       url_string = nil 
       answer = Answer.new
 
