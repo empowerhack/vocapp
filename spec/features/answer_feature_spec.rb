@@ -21,6 +21,12 @@ feature 'Answers' do
       add_answer
       expect(page).to have_content 'fakeemail@blah.com'
     end
+
+    scenario 'user adds an english definition' do
+      add_answer
+      expect(page).to have_content 'fake english definition'
+    end
+
   end
 
   context "Ranking by scoring" do

@@ -5,6 +5,7 @@ def add_answer
   click_button 'Search'
   click_link 'More'
   fill_in 'answer_definition_ar', with: 'fake definition'
+  fill_in 'answer_definition_en', with: 'fake english definition'
   click_button 'Create Answer'
 end
 
