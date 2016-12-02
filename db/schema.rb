@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201161815) do
+ActiveRecord::Schema.define(version: 20161202103405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20161201161815) do
     t.string   "term_ar_match"
     t.string   "context_en"
     t.string   "context_ar"
+    t.string   "ref_url"
     t.string   "definition_en"
     t.string   "definition_ar"
-    t.string   "ref_url"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20161201161815) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "admin",                  default: false
+    t.boolean  "academic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
