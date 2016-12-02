@@ -15,7 +15,7 @@ terms = []
 # Runs through each row and stores field and term+field data in arrays
 CSV.foreach(csv_text, headers: true) do |row|
   fields << row[2].capitalize
-  terms << [row[0].downcase, row[2].capitalize, row[5]]
+  terms << [row[0].downcase, row[2].capitalize, row[5], row[4], row[6], row[7]]
 end
 
 # Creates a user so the DB has a user_id of 1
@@ -37,9 +37,10 @@ fields.uniq.each { |f| Field.create!(name: f) }
 
 # Assigns the correct field_id to each term, plus user_id of 1
 # Creates answers for each term
+print terms
 terms.each.with_index do |t, i|
   field_id = Field.where(name: t[1])[0].id
   term = Term.create(term_en: t[0], user_id: 1, field_id: field_id)
   term_identity = term.id
-  Answer.create(definition_ar: t[2], user_id: 1, term_id: term_identity)
+  Answer.create(definition_ar: t[2], definition_en: t[3], context_en: t[4], context_ar: t[5], user_id: 1, term_id: term_identity)
 end
