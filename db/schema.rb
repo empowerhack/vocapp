@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20161202103405) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "admin",                  default: false
-    t.boolean  "academic"
+    t.boolean  "academic",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
