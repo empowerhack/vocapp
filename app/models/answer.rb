@@ -19,8 +19,7 @@ class Answer < ActiveRecord::Base
   end
 
   def url_fixer(url)
-    return nil if url == nil
-    return url if url[0..3] == 'http' || nil
+    return url if !url || url[0..3] == 'http' 
     'http://' + url
   end
 end
