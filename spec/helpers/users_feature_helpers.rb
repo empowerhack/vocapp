@@ -14,3 +14,11 @@ def sign_in_admin
   fill_in 'Password', with: 'password'
   click_button 'Log in'
 end
+
+def sign_in_academic
+  visit '/'
+  click_link 'Log in'
+  fill_in 'Email', with: 'academic@fake.com'
+  fill_in 'Password', with: 'password'
+  click_button 'Log in'
+end

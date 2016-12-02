@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Answers' do
   before do
-    sign_up
+    sign_in_academic
   end
 
   context 'No answer added yet' do
