@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161201161815) do
     t.string   "term_ar_match"
     t.string   "context_en"
     t.string   "context_ar"
+    t.string   "ref_url"
     t.string   "definition_en"
     t.string   "definition_ar"
   end
