@@ -24,23 +24,21 @@ feature 'Answers' do
         add_calculus_term
       end
 
-      scenario 'user adds an english definition' do
-        add_answer
-        expect(page).to have_content 'fake english definition'
-      end
-
-
       scenario 'should have no answer' do
         visit ('/')
         fill_in 'term-search', with: 'calculus'
         click_button 'Search'
         expect(page).to have_content "No answers for this term yet."
-        save_and_open_page
       end
 
       scenario 'user adds an answer' do
         add_answer
         expect(page).to have_content 'academic@vocapp.com'
+      end
+
+      scenario 'user adds an english definition' do
+        add_answer
+        expect(page).to have_content 'fake english definition'
       end
     end
 
@@ -58,15 +56,7 @@ feature 'Answers' do
         click_button 'Search'
         expect(page).to have_content 'second fake definition'
       end
-
-
-      scenario 'should have no answer' do
-        visit ('/')
-        fill_in 'term-search', with: 'calculus'
-        click_button 'Search'
-        expect(page).to have_content "No answers for this term yet."
-      end
-
+    
       scenario 'user adds an answer' do
         add_answer
         expect(page).to have_content 'academic@vocapp.com'
