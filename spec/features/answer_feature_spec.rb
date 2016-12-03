@@ -62,31 +62,7 @@ feature 'Answers' do
         expect(page).to have_content 'academic@vocapp.com'
       end
 
-
-      scenario 'user adds an english definition' do
-        add_answer
-        expect(page).to have_content 'fake english definition'
-      end
-
-
-    end
-
-    context "Ranking by scoring" do
-      before do
-        add_calculus_term
-        add_answer
-        add_second_answer_and_upvote
-      end
-
-      scenario 'see top scoring answer for terms with multiple answers' do
-        visit ('/')
-        fill_in 'term-search', with: 'calculus'
-        select 'Maths', from: 'field_id'
-        click_button 'Search'
-        expect(page).to have_content 'second fake definition'
-      end
-
-      scenario 'top scoring answers are displayed first on term#show' do
+     scenario 'top scoring answers are displayed first on term#show' do
         visit ('/')
         fill_in 'term-search', with: 'calculus'
         select 'Maths', from: 'field_id'
