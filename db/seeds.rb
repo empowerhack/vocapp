@@ -41,5 +41,5 @@ terms.each.with_index do |t, i|
   field_id = Field.where(name: t[1])[0].id
   term = Term.create(term_en: t[0], user_id: 1, field_id: field_id)
   term_identity = term.id
-  Answer.create(definition: t[2], user_id: 1, term_id: term_identity)
+  Answer.create(definition_ar: t[2], user_id: 1, term_id: term_identity)
 end

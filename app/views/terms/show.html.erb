@@ -43,8 +43,13 @@
             <span class="term-label">Arabic direct translation</span>
             <span class="term-text"><%= answer.term_ar_match %></span>
             <%end %>
-            <span class="term-label">Arabic full answer</span>
-            <span class="term-text"><%= answer.definition %></span>
+            <span class="term-label">Arabic definition</span>
+            <span class="term-text"><%= answer.definition_ar %></span>
+            <%if answer.definition_en %>
+            <span class="term-label">English definition</span>
+            <span class="term-text"><%= answer.definition_en %></span>
+            <%end %>
+
             <%if answer.context_en %>
             <span class="term-label">English term in context</span>
             <span class="term-text"><%= answer.context_en %></span>
@@ -86,8 +91,13 @@
     <% if user_signed_in? && (current_user.academic || current_user.admin) %>
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
-          <%= f.label :definition, "Add a new answer" %><br>
-          <%= f.text_area :definition, required: true %>
+          <%= f.label :definition_ar, "Add a new Arabic definition" %><br>
+          <%= f.text_area :definition_ar, required: true %>
+          <p class="field">
+            <%= f.label :definition_en, "Enter the English definition(optional):" %><br>
+            <%= f.text_field :definition_en, value: params[:term_ar_match], required: false %>
+          </p>
+
           <p class="field">
             <%= f.label :term_ar_match, "Enter the direct Arabic translation if there is one (optional):" %><br>
             <%= f.text_field :term_ar_match, value: params[:term_ar_match], required: false %>

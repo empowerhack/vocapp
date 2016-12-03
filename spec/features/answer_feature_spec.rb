@@ -11,6 +11,12 @@ feature 'Answers' do
       click_link 'More'
       expect(page).to_not have_content "Add a new answer"
     end
+
+    scenario 'user adds an english definition' do
+      add_answer
+      expect(page).to have_content 'fake english definition'
+    end
+
   end
 
     context 'with academic signed in' do
