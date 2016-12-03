@@ -37,7 +37,6 @@ fields.uniq.each { |f| Field.create!(name: f) }
 
 # Assigns the correct field_id to each term, plus user_id of 1
 # Creates answers for each term
-print terms
 terms.each.with_index do |t, i|
   field_id = Field.where(name: t[1])[0].id
   term = Term.create(term_en: t[0], user_id: 1, field_id: field_id)
