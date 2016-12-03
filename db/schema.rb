@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201144328) do
+ActiveRecord::Schema.define(version: 20161201161815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string   "definition"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "term_id"
@@ -30,6 +29,8 @@ ActiveRecord::Schema.define(version: 20161201144328) do
     t.string   "context_en"
     t.string   "context_ar"
     t.string   "ref_url"
+    t.string   "definition_en"
+    t.string   "definition_ar"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
