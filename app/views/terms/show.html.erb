@@ -83,7 +83,7 @@
     </ul>
   </div>
   <div class="term-create-block">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && (current_user.academic || current_user.admin) %>
       <%= form_for([@term, @term.answers.build]) do |f| %>
         <p>
           <%= f.label :definition, "Add a new answer" %><br>
@@ -109,8 +109,6 @@
           <%= f.submit %>
         </p>
       <% end %>
-    <% else %>
-      <a href="../users/sign_in">Sign in</a> to add a definition
     <% end %>
   </div>
 </div>
