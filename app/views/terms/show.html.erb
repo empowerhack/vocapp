@@ -47,12 +47,17 @@
             <span class="term-text"><%= answer.definition %></span>
             <%if answer.context_en %>
             <span class="term-label">English term in context</span>
-            <span class="term-text"><%= answer.term_ar_match %></span>
+            <span class="term-text"><%= answer.context_en %></span>
             <%end %>
             <%if answer.context_ar %>
             <span class="term-label">Arabic term in context</span>
-            <span class="term-text"><%= answer.term_ar_match %></span>
+            <span class="term-text"><%= answer.context_ar %></span>
             <%end %>
+            <%if answer.ref_url %>
+            <span class="term-label">Reference</span>
+            <span class="term-text"><a href=<%= answer.ref_url %>><%= answer.ref_url %></a></span>
+            <%end %>
+
             <div>
               <% if user_signed_in? && current_user.has_flagged?(answer) %>
                 <%= form_for([@term, @answers.find(answer.id), answer.flags.find_by(user_id: current_user.id, answer_id: answer.id)], method: 'delete') do |f| %>
@@ -94,6 +99,10 @@
           <p class="field">
             <%= f.label :context_ar, "Enter context in Arabic (optional):" %><br>
             <%= f.text_field :context_ar, value: params[:context_ar], required: false %>
+          </p>
+          <p class="field">
+            <%= f.label :ref_url, "Enter a reference URL (optional):" %><br>
+            <%= f.text_field :ref_url, value: params[:ref_url], required: false %>
           </p>
         </p>
         <p>
