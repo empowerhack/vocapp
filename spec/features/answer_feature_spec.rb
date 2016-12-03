@@ -60,5 +60,22 @@ feature 'Answers' do
           expect(page.all('.list-group-item').first).to have_content 'second fake definition'
         end
       end
+    
+  context 'adding urls' do
+
+    before do
+      add_calculus_term
+      add_answer
     end
+ 
+    scenario 'submitted urls appear' do
+      visit ('/')
+      fill_in 'term-search', with: 'calculus'
+      select 'Maths', from: 'field_id'
+      click_button 'Search'
+      click_link 'More'
+      expect(page).to have_content 'http://wikipedia.org/wiki/Calculus'
+    end
+  end
+  end
 end

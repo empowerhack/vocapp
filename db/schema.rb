@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20161202103405) do
     t.string   "term_ar_match"
     t.string   "context_en"
     t.string   "context_ar"
+    t.string   "ref_url"
   end
 
   add_index "answers", ["term_id"], name: "index_answers_on_term_id", using: :btree
