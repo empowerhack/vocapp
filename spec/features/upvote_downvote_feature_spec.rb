@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Upvoting and downvoting' do
   before do
-    sign_up
+    sign_in_academic
     add_calculus_term
     add_answer
   end
