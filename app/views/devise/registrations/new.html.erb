@@ -10,6 +10,11 @@
     </div>
 
     <div class="field">
+      <%=f.label "Which type of user are you?" %>
+      <%= f.select :academic, [['Academic', true], ['Student', false]] %>
+    </div>
+
+    <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
